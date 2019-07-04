@@ -5,26 +5,61 @@ import Footer from './components/Footer/Footer';
 import TodoItem from './components/TodoItem/TodoItem';
 import Card from './components/Card/Card';
 
+import carDatas from './carDatas.json'
+
 // import logo from '../../assets/logo.svg';
 import './components/App/App.scss';
 
 /* <img src={logo} className="App-logo" alt="logo" /> */
 
 const App = () => {
+  /* carDatas.map(car => {
+    return console.warn("car", car)
+  }) */
+  
   return (
     <div className="App">
       <Header />
 
       <TodoItem></TodoItem>
 
-      <Card list={{ title: "Peugeot 2008 1", imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161635/config/111991/peugeot-2008-1906pc-129.jpg", view: "side"}}
-      ></Card>
+      <div className="listContainer">
+        <Card list={{ title: "Peugeot 2008 1", 
+                      imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161635/config/111991/peugeot-2008-1906pc-129.jpg", 
+                      view: "side",
+                      year: "2019"}}
+        ></Card>
 
-      <Card list={{ title: "Peugeot 2008 2", imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161636/config/111992/peugeot-2008-1906pc-126.jpg", view: "rear"}} 
-      ></Card>
+        <Card list={{ title: "Peugeot 2008 2", 
+                      imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161636/config/111992/peugeot-2008-1906pc-126.jpg", 
+                      view: "rear",
+                      year: ""}} 
+        ></Card>
 
-      <Card list={{ title: "Peugeot 2008 3", imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/163239/config/112119/la-longueur-augmente-de-14-cm-pour-atteindre-430-m.jpg", view: "front"}} 
-      ></Card>
+        <Card list={{ title: "Peugeot 2008 3", 
+                      imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/163239/config/112119/la-longueur-augmente-de-14-cm-pour-atteindre-430-m.jpg", 
+                      view: "front"}} 
+        ></Card>
+
+        
+        <Card list={{ title: "Renault Captur 1", 
+                      imgUrl: "https://img.autoplus.fr/news/2019/07/03/1540178/1200%7C800%7C5c4c8832137f48d852a5d73d.jpg", 
+                      view: "side",
+                      year: "2019"}}
+        ></Card>
+
+        <Card list={{ title: "Renault Captur 2", 
+                      imgUrl: "https://img.autoplus.fr/picture/renault/captur/1540159/Renault_Captur_2019_68b36-1200-800.jpg", 
+                      view: "rear",
+                      year: ""}} 
+        ></Card>
+
+        <Card list={{ title: "Renault Captur 3", 
+                      imgUrl: "https://img.autoplus.fr/picture/renault/captur/1540159/Renault_Captur_2019_03b29-1200-800.jpg", 
+                      view: "front"}} 
+        ></Card>
+      </div>
+      
 
       <div className="App-header">
         
