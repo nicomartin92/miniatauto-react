@@ -1,9 +1,12 @@
 import React from 'react';
 import './Header.scss';
 
-function Headers() {
+const Headers = () => {
     return (
-        <header className="header">header</header>
+        <header className="header"
+            style={{ color: '#000000' }}>
+            header
+        </header>
     )
 }
 
