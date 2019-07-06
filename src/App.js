@@ -2,28 +2,28 @@ import React from 'react';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import TodoItem from './components/TodoItem/TodoItem';
 import Card from './components/Card/Card';
 
-import carDatas from './carDatas.json'
+/* Datas */
+import carsData from './db';
 
-// import logo from '../../assets/logo.svg';
+
 import './components/App/App.scss';
-
+// import logo from '../../assets/logo.svg';
 /* <img src={logo} className="App-logo" alt="logo" /> */
 
 const App = () => {
-  /* carDatas.map(car => {
-    return console.warn("car", car)
-  }) */
+  const carsItems = carsData.map(item => <Card key={item.id} item={item} /> )
   
   return (
     <div className="App">
       <Header />
 
-      <TodoItem></TodoItem>
-
       <div className="listContainer">
+        {carsItems}
+      </div>
+
+      {/* <div className="listContainer">
         <Card list={{ title: "Peugeot 2008 1", 
                       imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161635/config/111991/peugeot-2008-1906pc-129.jpg", 
                       view: "side",
@@ -58,14 +58,11 @@ const App = () => {
                       imgUrl: "https://img.autoplus.fr/picture/renault/captur/1540159/Renault_Captur_2019_03b29-1200-800.jpg", 
                       view: "front"}} 
         ></Card>
-      </div>
+      </div> */}
       
 
       <div className="App-header">
         
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"

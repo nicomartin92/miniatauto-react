@@ -2,14 +2,13 @@ import React from 'react'
 import './Card.scss'
 
 const Card = (props) => {
-    console.warn('list', props)
 
     return (
         <div className="card">
-            <img src={props.list.imgUrl} alt="" />
-            <h3>{props.list.title}</h3>
-            <p>{props.list.view}</p>
-            <p style={{display: !props.list.year && "none"}}>{props.list.year}</p>
+            <img src={props.item.image} alt="" />
+            <h3>{props.item.title}</h3>
+            <p>{props.item.brand} {props.item.model} {props.item.version}</p>
+            <p style={{display: !props.item.year && "none"}}>{props.item.year}</p>
         </div>
     )
 }
