@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './Card.scss'
 
 /* const Card = (props) => {
@@ -13,7 +13,8 @@ import './Card.scss'
     )
 } */
 
-class Card extends React.Component {
+
+class Card extends Component {
     render() {
         return (
             <div className="card">
@@ -22,6 +23,9 @@ class Card extends React.Component {
                 <p>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</p>
                 <p style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</p>
                 <p>Answer: {this.props.answer}</p>
+                <p>{this.props.likes} likes</p>
+                <p>Stock:  {this.props.item.stock}</p>
+                <button onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button>  
             </div>
        )
     }

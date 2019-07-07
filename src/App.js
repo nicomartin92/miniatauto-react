@@ -17,12 +17,46 @@ class App extends Component {
     this.state = {
       carsDataFromState: carsData,
       answer: "Ottomobile",
-      isLogged: true
+      isLogged: true,
+      stock: 0
     }
+    this.countStock = this.countStock.bind(this)
+  }
+
+  countStock(id) {
+    console.warn('changed id ', id);
+
+    this.setState(prevState => {
+      const updatedStock = prevState.carsDataFromState.map(item => {
+        console.warn('prev stock ', item.stock);
+
+        if (item.id === id) {
+          item.stock = (item.stock - 1)
+          if (item.stock <= 0) {
+            item.stock = 0
+          }
+          console.warn('new stock ', item.stock)
+        }
+        return item
+      })
+      return {
+        carsDataFromState: updatedStock
+      }
+    })
+    
+    /* this.setState(prevState => {
+      return {
+        likes: prevState.likes + 1
+      }
+    }); */
   }
   
   render() {
-    const carsItems = this.state.carsDataFromState.map(item => <Card answer={this.state.answer} key={item.id} item={item} />);
+    const carsItems = this.state.carsDataFromState.map(item => <Card
+      countStock={this.countStock}
+      answer={this.state.answer}
+      key={item.id}
+      item={item} />);
 
     let worldDisplay;
     if (this.state.isLogged) {
@@ -37,6 +71,8 @@ class App extends Component {
 
         <h1>Marsque principale ? {this.state.answer}</h1>
         <h2>Utilisateur est connecté: {worldDisplay}</h2>
+        <p>Likes: {this.state.likes}</p>
+        <button onClick={this.countLikes}>Like</button>
   
         <div className="listContainer">
           {carsItems}
