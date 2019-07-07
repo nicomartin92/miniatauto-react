@@ -19,8 +19,9 @@ class Card extends React.Component {
             <div className="card">
                 <img src={this.props.item.image} alt="" />
                 <h3>{this.props.item.title}</h3>
-                <p>{this.props.item.brand} {this.props.item.model} {this.props.item.version}</p>
-                <p style={{display: !this.props.item.year && "none"}}>{this.props.item.year}</p>
+                <p>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</p>
+                <p style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</p>
+                <p>Answer: {this.props.answer}</p>
             </div>
        )
     }
