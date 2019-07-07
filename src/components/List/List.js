@@ -17,13 +17,21 @@ import './List.scss'
 class List extends Component {
     
     render() {
+        const unavailableStyles = {
+            opacity: "0.5"
+        }
+
+        const availableStyles = {
+            opacity: "1"
+        }
+
         if(this.props.isLoading) {
-            return <h2>Loading card ...</h2>
+            return <li className="list__item"><h2>Loading card ...</h2></li>
         }
 
         return (
             <li className="list__item">
-                <div>
+                <div style={this.props.item.available ? availableStyles : unavailableStyles}>
                     <img src={this.props.item.image} loading="lazy" alt={this.props.item.model} />
                     <div>{this.props.item.title}</div>
                     <div>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</div>

@@ -30,14 +30,12 @@ class App extends Component {
 
     this.setState(prevState => {
       const updatedStock = prevState.carsDataFromState.map(item => {
-        console.warn('prev stock ', item.stock);
-
         if (item.id === id) {
           item.stock = (item.stock - 1)
-          if (item.stock <= 0 || item.stock !== NaN) {
-            item.stock = 0 + ' plus disponible'
+          if (item.stock <= 0 || item.stock === isNaN) {
+            item.stock = 0
+            item.available = !item.available
           }
-          console.warn('new stock ', item.stock)
         }
         return item
       })
@@ -81,7 +79,7 @@ class App extends Component {
         <Header />
 
         <div className="main">
-          <h1>Marsque principale ? {this.state.answer}</h1>
+          <h1>Marque principale ? {this.state.answer}</h1>
           <h2>Utilisateur est connecté: {worldDisplay}</h2>
 
           <div className="list">
