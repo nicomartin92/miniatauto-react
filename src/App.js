@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Card from './components/Card/Card';
+import List from './components/List/List';
 
 /* Datas */
 import carsData from './db';
@@ -19,7 +19,8 @@ class App extends Component {
       answer: "Ottomobile",
       isLogged: true,
       stock: 0,
-      isLoading: true
+      isLoading: true,
+      loadingDelay: 1500
     }
     this.countStock = this.countStock.bind(this)
   }
@@ -33,8 +34,8 @@ class App extends Component {
 
         if (item.id === id) {
           item.stock = (item.stock - 1)
-          if (item.stock <= 0) {
-            item.stock = 0
+          if (item.stock <= 0 || item.stock !== NaN) {
+            item.stock = 0 + ' plus disponible'
           }
           console.warn('new stock ', item.stock)
         }
@@ -57,11 +58,11 @@ class App extends Component {
       this.setState({
         isLoading: false
       })
-    }, 1500)
+    }, this.state.loadingDelay)
   }
   
   render() {
-    const carsItems = this.state.carsDataFromState.map(item => <Card
+    const carsItems = this.state.carsDataFromState.map(item => <List
       isLoading={this.state.isLoading}
       countStock={this.countStock}
       answer={this.state.answer}
@@ -79,12 +80,17 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <h1>Marsque principale ? {this.state.answer}</h1>
-        <h2>Utilisateur est connecté: {worldDisplay}</h2>
-  
-        <div className="listContainer">
-          {carsItems}
+        <div className="main">
+          <h1>Marsque principale ? {this.state.answer}</h1>
+          <h2>Utilisateur est connecté: {worldDisplay}</h2>
+
+          <div className="list">
+            <ul className="list__wrapper">
+              {carsItems}
+            </ul>
+          </div>
         </div>
+        
   
         {/* <div className="listContainer">
           <Card list={{ title: "Peugeot 2008 1", 
@@ -124,7 +130,7 @@ class App extends Component {
         </div> */}
         
   
-        <div className="App-header">
+        {/* <div className="App-header">
           
           <a
             className="App-link"
@@ -134,7 +140,7 @@ class App extends Component {
           >
             Learn React
           </a>
-        </div>
+      </div> */}
   
         <Footer />
       </div>
