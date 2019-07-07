@@ -18,7 +18,8 @@ class App extends Component {
       carsDataFromState: carsData,
       answer: "Ottomobile",
       isLogged: true,
-      stock: 0
+      stock: 0,
+      isLoading: true
     }
     this.countStock = this.countStock.bind(this)
   }
@@ -50,9 +51,18 @@ class App extends Component {
       }
     }); */
   }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      })
+    }, 1500)
+  }
   
   render() {
     const carsItems = this.state.carsDataFromState.map(item => <Card
+      isLoading={this.state.isLoading}
       countStock={this.countStock}
       answer={this.state.answer}
       key={item.id}
@@ -71,8 +81,6 @@ class App extends Component {
 
         <h1>Marsque principale ? {this.state.answer}</h1>
         <h2>Utilisateur est connecté: {worldDisplay}</h2>
-        <p>Likes: {this.state.likes}</p>
-        <button onClick={this.countLikes}>Like</button>
   
         <div className="listContainer">
           {carsItems}

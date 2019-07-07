@@ -15,7 +15,12 @@ import './Card.scss'
 
 
 class Card extends Component {
+    
     render() {
+        if(this.props.isLoading) {
+            return <h2>Loading card ...</h2>
+        }
+
         return (
             <div className="card">
                 <img src={this.props.item.image} alt="" />
