@@ -20,14 +20,16 @@ class App extends Component {
       isLogged: true,
       stock: 0,
       isLoading: true,
-      loadingDelay: 1500
+      loadingDelay: 1500,
+      carsDataJsonFromState: {},
+      repos: [],
+      requestFailed: false,
+      data: {}
     }
     this.countStock = this.countStock.bind(this)
   }
 
   countStock(id) {
-    console.warn('changed id ', id);
-
     this.setState(prevState => {
       const updatedStock = prevState.carsDataFromState.map(item => {
         if (item.id === id) {
@@ -56,7 +58,31 @@ class App extends Component {
       this.setState({
         isLoading: false
       })
-    }, this.state.loadingDelay)
+    }, this.state.loadingDelay);
+
+  /* fetching API */
+    this.setState({ isLoading: false })
+    
+    //fetch('http://localhost:3003/cars')
+    /* fetch('https://swapi.co/api/people/1/')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          isLoading: false,
+          carsDataJsonFromState: data
+        })
+      }); */
+    
+    fetch('https://randomuser.me/api/')
+    //fetch('http://localhost:3003/cars')
+    .then((response) => {
+      return response.json()
+    }).then((d) =>  {
+      console.warn('ok ggggggggggggggggggggg', d)
+      this.setState({
+            data: d
+      });
+    })
   }
   
   render() {
@@ -74,11 +100,17 @@ class App extends Component {
       worldDisplay = 'faux';
     }
 
+    if(this.state.requestFailed) return <p>Request failed.</p>
+    if(!this.state.data) return <p>Loading</p>
+
     return (
       <div className="App">
         <Header />
 
         <div className="main">
+
+        {this.state.answer}
+
           <h1>Marque principale ? {this.state.answer}</h1>
           <h2>Utilisateur est connecté: {worldDisplay}</h2>
 
