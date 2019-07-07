@@ -15,13 +15,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      carsDataFromState: carsData,
       answer: "Ottomobile",
       isLogged: true
     }
   }
   
   render() {
-    const carsItems = carsData.map(item => <Card answer={this.state.answer} key={item.id} item={item} />);
+    const carsItems = this.state.carsDataFromState.map(item => <Card answer={this.state.answer} key={item.id} item={item} />);
 
     let worldDisplay;
     if (this.state.isLogged) {
