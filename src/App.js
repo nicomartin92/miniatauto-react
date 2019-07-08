@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import List from './components/List/List';
-import Post from './components/Post/Post';
+// import Post from './components/Post/Post';
 
 /* Datas */
 import carsData from './db';
@@ -27,7 +27,8 @@ class App extends Component {
       carsDataJsonFromState: {},
       repos: [],
       requestFailed: false,
-      data: {}
+      data: {},
+      todos: []
     }
     this.countStock = this.countStock.bind(this)
   }
@@ -51,9 +52,9 @@ class App extends Component {
   }
 
   fetchPosts() {
-    // fetch(`https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/posts.json`)
+    /* fetch(`https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/posts.json`)
     // fetch(`https://randomuser.me/api/?results=10&nat=us`)
-    fetch(`http://localhost:3003/posts`)
+    // fetch(`http://localhost:3003/posts`)
       .then(response => response.json())
       .then(
         data =>
@@ -62,7 +63,8 @@ class App extends Component {
             isLoading: false,
           })
       )
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.setState({ error, isLoading: false })); */
+      
   }
 
   componentDidMount() {
@@ -75,7 +77,15 @@ class App extends Component {
   /* fetching API */
     this.setState({ isLoading: false })
 
-    this.fetchPosts();
+    // this.fetchPosts();
+
+    fetch('http://localhost:3003/cars')
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ todos: data })
+        console.warn(this.state.todos)
+      })
+      .catch(console.log)
   }
   
   render() {
@@ -96,7 +106,7 @@ class App extends Component {
     if(this.state.requestFailed) return <p>Request failed.</p>
     if (!this.state.data) return <p>Loading</p>
     
-    const { isLoading, carsD } = this.state;
+    // const { isLoading, carsD } = this.state;
 
     /* {!isLoading ?
     Object.keys(carsD).map(key => <Post key={key} body={carsD[key]} />) :
@@ -107,8 +117,26 @@ class App extends Component {
         <Header />
 
         <div className="main">
-          
-          {Object.keys(carsD).map(key => <Post key={key} body={carsD[key]} />)}
+          helo
+        {this.state.todos.map((todo) => (
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">{todo.brand}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">
+              { todo.brand &&
+                <span>
+                Completed
+                </span>
+              }
+              { !todo.content &&
+                <span>
+                  Pending
+                </span>
+              }              
+              </h6>
+            </div>
+          </div>
+        ))}
 
           
           {this.state.answer}

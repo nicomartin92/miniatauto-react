@@ -1,0 +1,16 @@
+{
+  "posts": [
+      {
+        "_id": "5b3f761e21d434001487ad99",
+        "title": "Hello Word!",
+        "content": "The world is green!",
+        "__v": 0
+      },
+      {
+        "_id": "5b3f76b521d434001487ad9a",
+        "title": "Sed porttitor lectus nibh",
+        "content": "Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.",
+        "__v": 0
+      }
+  ]
+}
