@@ -3,13 +3,14 @@ import React, {Component} from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import List from './components/List/List';
+import Post from './components/Post/Post';
 
 /* Datas */
 import carsData from './db';
 
 import './components/App/App.scss';
 // import logo from '../../assets/logo.svg';
-/* <img src={logo} className="App-logo" alt="logo" /> */
+/* <img src={logo} className="App-logo" alt="logo" /> */ 
 
 class App extends Component {
   constructor() {
@@ -20,6 +21,8 @@ class App extends Component {
       isLogged: true,
       stock: 0,
       isLoading: true,
+      carsD: [],
+      error: null,
       loadingDelay: 1500,
       carsDataJsonFromState: {},
       repos: [],
@@ -45,12 +48,21 @@ class App extends Component {
         carsDataFromState: updatedStock
       }
     })
-    
-    /* this.setState(prevState => {
-      return {
-        likes: prevState.likes + 1
-      }
-    }); */
+  }
+
+  fetchPosts() {
+    // fetch(`https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/posts.json`)
+    // fetch(`https://randomuser.me/api/?results=10&nat=us`)
+    fetch(`http://localhost:3003/posts`)
+      .then(response => response.json())
+      .then(
+        data =>
+          this.setState({
+            carsD: data,
+            isLoading: false,
+          })
+      )
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   componentDidMount() {
@@ -62,27 +74,8 @@ class App extends Component {
 
   /* fetching API */
     this.setState({ isLoading: false })
-    
-    //fetch('http://localhost:3003/cars')
-    /* fetch('https://swapi.co/api/people/1/')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          isLoading: false,
-          carsDataJsonFromState: data
-        })
-      }); */
-    
-    fetch('https://randomuser.me/api/')
-    //fetch('http://localhost:3003/cars')
-    .then((response) => {
-      return response.json()
-    }).then((d) =>  {
-      console.warn('ok ggggggggggggggggggggg', d)
-      this.setState({
-            data: d
-      });
-    })
+
+    this.fetchPosts();
   }
   
   render() {
@@ -101,15 +94,24 @@ class App extends Component {
     }
 
     if(this.state.requestFailed) return <p>Request failed.</p>
-    if(!this.state.data) return <p>Loading</p>
+    if (!this.state.data) return <p>Loading</p>
+    
+    const { isLoading, carsD } = this.state;
+
+    /* {!isLoading ?
+    Object.keys(carsD).map(key => <Post key={key} body={carsD[key]} />) :
+    <h3>Loading...</h3>} */
 
     return (
       <div className="App">
         <Header />
 
         <div className="main">
+          
+          {Object.keys(carsD).map(key => <Post key={key} body={carsD[key]} />)}
 
-        {this.state.answer}
+          
+          {this.state.answer}
 
           <h1>Marque principale ? {this.state.answer}</h1>
           <h2>Utilisateur est connecté: {worldDisplay}</h2>
@@ -158,19 +160,6 @@ class App extends Component {
                         view: "front"}} 
           ></Card>
         </div> */}
-        
-  
-        {/* <div className="App-header">
-          
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-      </div> */}
   
         <Footer />
       </div>
