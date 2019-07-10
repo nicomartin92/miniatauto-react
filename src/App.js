@@ -24,11 +24,9 @@ class App extends Component {
       carsD: [],
       error: null,
       loadingDelay: 1500,
-      carsDataJsonFromState: {},
-      repos: [],
+      carsDataJsonFromState: [],
       requestFailed: false,
-      data: {},
-      todos: []
+      data: {}
     }
     this.countStock = this.countStock.bind(this)
   }
@@ -51,22 +49,6 @@ class App extends Component {
     })
   }
 
-  fetchPosts() {
-    /* fetch(`https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/posts.json`)
-    // fetch(`https://randomuser.me/api/?results=10&nat=us`)
-    // fetch(`http://localhost:3003/posts`)
-      .then(response => response.json())
-      .then(
-        data =>
-          this.setState({
-            carsD: data,
-            isLoading: false,
-          })
-      )
-      .catch(error => this.setState({ error, isLoading: false })); */
-      
-  }
-
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -82,19 +64,27 @@ class App extends Component {
     fetch('http://localhost:3003/cars')
       .then(res => res.json())
       .then((data) => {
-        this.setState({ todos: data })
-        console.warn(this.state.todos)
+        this.setState({ carsDataJsonFromState: data })
+        console.warn(this.state.carsDataJsonFromState)
       })
       .catch(console.log)
   }
   
   render() {
+    /* from Array */
     const carsItems = this.state.carsDataFromState.map(item => <List
       isLoading={this.state.isLoading}
       countStock={this.countStock}
       answer={this.state.answer}
       key={item.id}
       item={item} />);
+    
+    const carsItemsFromJson = this.state.carsDataFromState.map(item => <List
+        isLoading={this.state.isLoading}
+        countStock={this.countStock}
+        answer={this.state.answer}
+        key={item.id}
+        item={item} />);
 
     let worldDisplay;
     if (this.state.isLogged) {
@@ -105,8 +95,6 @@ class App extends Component {
 
     if(this.state.requestFailed) return <p>Request failed.</p>
     if (!this.state.data) return <p>Loading</p>
-    
-    // const { isLoading, carsD } = this.state;
 
     /* {!isLoading ?
     Object.keys(carsD).map(key => <Post key={key} body={carsD[key]} />) :
@@ -117,27 +105,33 @@ class App extends Component {
         <Header />
 
         <div className="main">
-          helo
-        {this.state.todos.map((todo) => (
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">{todo.brand}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-              { todo.brand &&
-                <span>
-                Completed
-                </span>
-              }
-              { !todo.content &&
-                <span>
-                  Pending
-                </span>
-              }              
-              </h6>
-            </div>
-          </div>
-        ))}
 
+          <div className="list">
+            <ul className="list__wrapper">
+              {carsItemsFromJson}
+            </ul>
+          </div>
+          
+          
+          {this.state.carsDataJsonFromState.map((car) => (
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{car.brand}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">
+                { car.brand &&
+                  <span>
+                  Completed
+                  </span>
+                }
+                { !car.content &&
+                  <span>
+                    Pending
+                  </span>
+                }              
+                </h6>
+              </div>
+            </div>
+          ))}
           
           {this.state.answer}
 
