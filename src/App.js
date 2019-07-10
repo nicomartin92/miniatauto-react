@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import List from './components/List/List';
-// import Post from './components/Post/Post';
 
 /* Datas */
 import carsData from './db';
@@ -55,22 +54,23 @@ class App extends Component {
         isLoading: false
       })
     }, this.state.loadingDelay);
-
-  /* fetching API */
+    
     this.setState({ isLoading: false })
 
-    // this.fetchPosts();
-
+    /* fetching API from Json */
     fetch('http://localhost:3003/cars')
       .then(res => res.json())
       .then((data) => {
-        this.setState({ carsDataJsonFromState: data })
+        this.setState({
+          carsDataJsonFromState: data
+        })
         console.warn(this.state.carsDataJsonFromState)
       })
       .catch(console.log)
   }
   
   render() {
+
     /* from Array */
     const carsItems = this.state.carsDataFromState.map(item => <List
       isLoading={this.state.isLoading}
@@ -79,6 +79,7 @@ class App extends Component {
       key={item.id}
       item={item} />);
     
+    /* from Json */
     const carsItemsFromJson = this.state.carsDataFromState.map(item => <List
         isLoading={this.state.isLoading}
         countStock={this.countStock}
@@ -86,6 +87,7 @@ class App extends Component {
         key={item.id}
         item={item} />);
 
+    /* Word display */
     let worldDisplay;
     if (this.state.isLogged) {
       worldDisplay = 'vrai';
@@ -106,13 +108,16 @@ class App extends Component {
 
         <div className="main">
 
+          <h2>Cars display from Json</h2>
+
           <div className="list">
             <ul className="list__wrapper">
               {carsItemsFromJson}
             </ul>
           </div>
           
-          
+          <h2>Cars display from Json with direct node</h2>
+
           {this.state.carsDataJsonFromState.map((car) => (
             <div className="card">
               <div className="card-body">
@@ -132,57 +137,32 @@ class App extends Component {
               </div>
             </div>
           ))}
-          
-          {this.state.answer}
 
-          <h1>Marque principale ? {this.state.answer}</h1>
-          <h2>Utilisateur est connecté: {worldDisplay}</h2>
+          <h2>Cars display from Array</h2>
 
           <div className="list">
             <ul className="list__wrapper">
               {carsItems}
             </ul>
           </div>
+
+          <h2>Cars display with props</h2>
+
+          {/* <div className="listContainer">
+            <Card list={{ title: "Peugeot 2008 1", 
+                          imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161635/config/111991/peugeot-2008-1906pc-129.jpg", 
+                          view: "side",
+                          year: "2019"}}
+            ></Card>
+              </div> */}
+          
+          {this.state.answer}
+
+          <h1>Marque principale ? {this.state.answer}</h1>
+          <h2>Utilisateur est connecté: {worldDisplay}</h2>
+
         </div>
         
-  
-        {/* <div className="listContainer">
-          <Card list={{ title: "Peugeot 2008 1", 
-                        imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161635/config/111991/peugeot-2008-1906pc-129.jpg", 
-                        view: "side",
-                        year: "2019"}}
-          ></Card>
-  
-          <Card list={{ title: "Peugeot 2008 2", 
-                        imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/161636/config/111992/peugeot-2008-1906pc-126.jpg", 
-                        view: "rear",
-                        year: ""}} 
-          ></Card>
-  
-          <Card list={{ title: "Peugeot 2008 3", 
-                        imgUrl: "https://www.automobile-magazine.fr/asset/cms/840x394/163239/config/112119/la-longueur-augmente-de-14-cm-pour-atteindre-430-m.jpg", 
-                        view: "front"}} 
-          ></Card>
-  
-          
-          <Card list={{ title: "Renault Captur 1", 
-                        imgUrl: "https://img.autoplus.fr/news/2019/07/03/1540178/1200%7C800%7C5c4c8832137f48d852a5d73d.jpg", 
-                        view: "side",
-                        year: "2019"}}
-          ></Card>
-  
-          <Card list={{ title: "Renault Captur 2", 
-                        imgUrl: "https://img.autoplus.fr/picture/renault/captur/1540159/Renault_Captur_2019_68b36-1200-800.jpg", 
-                        view: "rear",
-                        year: ""}} 
-          ></Card>
-  
-          <Card list={{ title: "Renault Captur 3", 
-                        imgUrl: "https://img.autoplus.fr/picture/renault/captur/1540159/Renault_Captur_2019_03b29-1200-800.jpg", 
-                        view: "front"}} 
-          ></Card>
-        </div> */}
-  
         <Footer />
       </div>
     ) 
