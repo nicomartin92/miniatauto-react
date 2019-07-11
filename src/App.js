@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+/* Components */
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import List from './components/List/List';
@@ -7,6 +8,7 @@ import List from './components/List/List';
 /* Datas */
 import carsData from './db';
 
+/* Styles */
 import './components/App/App.scss';
 // import logo from '../../assets/logo.svg';
 /* <img src={logo} className="App-logo" alt="logo" /> */ 
@@ -75,7 +77,6 @@ class App extends Component {
     const carsItems = this.state.carsDataFromState.map(item => <List
       isLoading={this.state.isLoading}
       countStock={this.countStock}
-      answer={this.state.answer}
       key={item.id}
       item={item} />);
     
@@ -83,7 +84,6 @@ class App extends Component {
     const carsItemsFromJson = this.state.carsDataFromState.map(item => <List
         isLoading={this.state.isLoading}
         countStock={this.countStock}
-        answer={this.state.answer}
         key={item.id}
         item={item} />);
 
