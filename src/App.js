@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 /* Components */
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 import List from './components/List/List';
 
 /* Datas */
@@ -11,7 +15,14 @@ import carsData from './db';
 /* Styles */
 import './components/App/App.scss';
 // import logo from '../../assets/logo.svg';
-/* <img src={logo} className="App-logo" alt="logo" /> */ 
+/* <img src={logo} className="App-logo" alt="logo" /> */
+
+/* Pages */
+import MainPage from './pages/MainPage';
+import ListPage from './pages/ListPage';
+import WhishlistPage from './pages/WhishlistPage';
+import UserPage from './pages/UserPage';
+import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
   constructor() {
@@ -104,7 +115,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Router>
+          <Switch>
+            <Route path="/" component={MainPage} exact />
+            <Route path="/list" component={ListPage} exact />
+            <Route path="/whishlist" component={WhishlistPage} exact />
+            <Route path="/User" component={UserPage} exact />
+            <Route path="/error" component={ErrorPage} exact />
+            <Redirect to='/404' />
+          </Switch> 
+        </Router>
 
         <div className="main">
 
@@ -162,8 +182,7 @@ class App extends Component {
           <h2>Utilisateur est connecté: {worldDisplay}</h2>
 
         </div>
-        
-        <Footer />
+
       </div>
     ) 
   }
