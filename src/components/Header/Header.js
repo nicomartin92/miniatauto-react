@@ -7,10 +7,18 @@ const Headers = () => {
     return (
         <header className="nav"
             style={{ color: '#000000' }}>
-            <Link to="/">Accueil</Link>
-            <Link to="/list">Catégorie</Link>
-            <Link to="/whishlist">Whishlist</Link>
-            <Link to="/user">User</Link>
+            <li>
+                <Link to="/">Accueil</Link>
+            </li>
+            <li>
+                <Link to="/list" exact>Catégorie</Link>
+            </li>  
+            <li>
+                <Link to="/whishlist">Whishlist</Link>
+            </li>
+            <li>
+                <Link to="/user">User</Link>
+            </li>
         </header>
     )
 }
