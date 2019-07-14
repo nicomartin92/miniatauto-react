@@ -67,8 +67,6 @@ class App extends Component {
         isLoading: false
       })
     }, this.state.loadingDelay);
-    
-    this.setState({ isLoading: false })
 
     /* fetching API from Json */
     fetch('http://localhost:3003/cars')

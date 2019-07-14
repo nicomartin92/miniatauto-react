@@ -25,7 +25,8 @@ class List extends Component {
             opacity: "1"
         }
 
-        if(this.props.isLoading) {
+        if (this.props.isLoading) {
+            console.warn('loading ------------------------');
             return <li className="list__item"><h2>Loading card ...</h2></li>
         }
 
