@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 /* Components */
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-const UserPage = () => {
+/* const UserPage = () => {
     return (
         <div>
             <Header />
@@ -21,6 +21,27 @@ const UserPage = () => {
             <Footer />
         </div>
     );
+} */
+class UserPage extends Component {
+    
+    render(userId) {
+        // const { params: { userId } } = match;
+        console.warn('value', userId)
+        
+        return (
+            <div>
+                <Header />
+    
+                    <div className="main">
+
+                    </div>
+                
+                <Footer />
+            </div>
+        )
+    }
+    
+    
 }
 
 export default UserPage;

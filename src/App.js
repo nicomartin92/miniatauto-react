@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/" component={MainPage} exact />
             <Route path="/list" component={ListPage} exact />
             <Route path="/whishlist" component={WhishlistPage} exact />
-            <Route path="/User" component={UserPage} exact />
+            <Route path="/User/" component={UserPage} />
             <Route path="/error" component={ErrorPage} exact />
             <Redirect to='/404' />
           </Switch> 

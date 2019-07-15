@@ -57,7 +57,7 @@ $colorBlue: #0b299f;
       border: #eae8e4 1px solid;
       margin: 0;
       transition: 0.15s all ease-in-out;
-      min-height: 300px;
+      min-height: 337px;
   
      /* @include medium {
         width: 50%;
@@ -83,6 +83,11 @@ $colorBlue: #0b299f;
       .button-like {
         // @include button($colorBlack, $colorWhite);
       }
+    }
+
+    &__itemContainer {
+      transition: all .5s ease-in;
+      opacity: 0;
     }
   
     .sticky {

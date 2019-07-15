@@ -30,7 +30,7 @@ class ListPage extends Component {
           carsDataFromState: carsData,
           stock: 0,
           isLoading: true,
-          loadingDelay: 1500,
+          loadingDelay: 800,
           carsDataJsonFromState: [],
           data: {}
         }

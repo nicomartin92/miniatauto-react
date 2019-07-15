@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
 import './List.scss'
 
 /* const Card = (props) => {
@@ -26,19 +27,28 @@ class List extends Component {
         }
 
         if (this.props.isLoading) {
-            console.warn('loading ------------------------');
-            return <li className="list__item"><h2>Loading card ...</h2></li>
+            return (
+                <li className="list__item">
+                    <div className="spinner">
+                        <span className="spinner-inner-1"></span>
+                        <span className="spinner-inner-2"></span>
+                        <span className="spinner-inner-3"></span>
+                    </div>
+                    <h2>Loading card ...</h2>
+                </li>
+            ) 
         }
 
         return (
             <li className="list__item">
-                <div style={this.props.item.available ? availableStyles : unavailableStyles}>
+                <div className="list__itemContainer" style={this.props.item.available ? availableStyles : unavailableStyles}>
                     <img src={this.props.item.image} loading="lazy" alt={this.props.item.model} />
                     <div>{this.props.item.title}</div>
                     <div>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</div>
                     <div style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</div>
                     <div>Stock:  {this.props.item.stock}</div>
                     <button onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button> 
+                    <NavLink to={`/user/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
                 </div> 
             </li>
        )

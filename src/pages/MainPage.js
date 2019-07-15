@@ -34,7 +34,7 @@ class MainPage extends Component {
           isLoading: true,
           carsD: [],
           error: null,
-          loadingDelay: 1500,
+          loadingDelay: 500,
           carsDataJsonFromState: [],
           requestFailed: false,
           data: {}
