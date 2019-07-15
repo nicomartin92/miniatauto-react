@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 .nav {
     padding: 10px 20px;
     display: flex;
@@ -7,7 +9,7 @@
     font-weight: bold;
     position: fixed;
     z-index: 3;
-    background: #ffffff;
+    background: $colorWhite;
     width: 100%;
 
     li {
@@ -15,11 +17,7 @@
     }
 
     a {
-        color: #000000;
-        
-        &.nuxt-link-exact-active {
-            // border-bottom: 2px solid $colorBlue;
-        }
+        color: $colorBlack;
 
         &.-active {
             color: blue;

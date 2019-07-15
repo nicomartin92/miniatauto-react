@@ -1,0 +1,154 @@
+@mixin medium {
+  @media (min-width: $width768) { @content; }
+}
+@mixin large {
+  @media (min-width: $width1024) { @content; }
+}
+@mixin xlarge {
+  @media (min-width: $width1440) { @content; }
+}
+@mixin xxlarge {
+  @media (min-width: $width1600) { @content; }
+}
+
+
+@mixin button($color1, $color2) {
+  background-color: transparent;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 10px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: block;
+  color: $color1;
+  position: relative;
+  border-radius: 0;
+  border: 2px solid $color1;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+
+  input {
+    display: none;
+
+    &:checked + span {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: $color1;
+    background: $color1;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
+  &:hover {
+    color: $color2;
+    background-color: transparent;
+
+    &::before {
+      left: 0%;
+      right: auto;
+      width: 100%;
+    }
+  }
+}
+
+@mixin buttonClose($width, $widthMobile, $color, $colorText) {
+  position: relative;
+  margin: auto;
+  width: $widthMobile;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  @include large {
+    width: $width;
+  }
+
+  &:hover {
+    .inner {
+      &::before,
+      &::after {
+        transform: rotate(0);
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+    }
+    
+    label {
+      opacity: 1;
+    }
+  }
+
+  .inner {
+    width: inherit;
+    text-align: center;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: inherit;
+      background: $color;
+      left: 0;
+      transition: all .3s ease-in;
+    }
+
+    &::before {
+      top: 50%; 
+      transform: rotate(45deg);  
+    }
+
+    &::after {  
+      bottom: 50%;
+      transform: rotate(-45deg);  
+    }
+  }
+
+  label { 
+    font-size: .8em; 
+    line-height: 4em;
+    text-transform: uppercase;
+    color: $colorText;
+    transition: all .3s ease-in;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+@mixin round($size, $colorBg, $color, $fontSize) {
+  height: $size;
+  width: $size;
+  line-height: $size;
+  border-radius: 0;
+  border-width: 0;
+  padding: 0;
+  font-size: $fontSize;
+  border-radius: $size;
+  text-align: center;
+  background: $colorBg;
+  color: $color;
+}

@@ -1,5 +1,6 @@
 @import-normalize;
 
+@import 'index.scss';
 @import './styles/organisms/list.scss';
 
 body {
