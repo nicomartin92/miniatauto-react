@@ -20,5 +20,9 @@
         &.nuxt-link-exact-active {
             // border-bottom: 2px solid $colorBlue;
         }
+
+        &.-active {
+            color: blue;
+        }
     }
 }

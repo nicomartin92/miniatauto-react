@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Header.scss';
 
@@ -8,16 +8,16 @@ const Headers = () => {
         <header className="nav"
             style={{ color: '#000000' }}>
             <li>
-                <Link to="/">Accueil</Link>
+                <NavLink exact={true} to="/" activeClassName="-active">Accueil</NavLink>
             </li>
             <li>
-                <Link to="/list">Catégorie</Link>
+                <NavLink to="/list" activeClassName="-active">Catégorie</NavLink>
             </li>  
             <li>
-                <Link to="/whishlist">Whishlist</Link>
+                <NavLink to="/whishlist" activeClassName="-active">Whishlist</NavLink>
             </li>
             <li>
-                <Link to="/user">User</Link>
+                <NavLink to="/user" activeClassName="-active">User</NavLink>
             </li>
         </header>
     )
