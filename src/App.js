@@ -15,7 +15,7 @@ import './components/App/App.scss';
 import MainPage from './pages/MainPage';
 import ListPage from './pages/ListPage';
 import WhishlistPage from './pages/WhishlistPage';
-import UserPage from './pages/UserPage';
+import CarPage from './pages/CarPage';
 import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/" component={MainPage} exact />
             <Route path="/list" component={ListPage} exact />
             <Route path="/whishlist" component={WhishlistPage} exact />
-            <Route path="/User/" component={UserPage} />
+            <Route path="/Car/:id" component={CarPage} />
             <Route path="/error" component={ErrorPage} exact />
             <Redirect to='/404' />
           </Switch> 

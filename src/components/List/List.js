@@ -48,7 +48,7 @@ class List extends Component {
                     <div style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</div>
                     <div>Stock:  {this.props.item.stock}</div>
                     <button onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button> 
-                    <NavLink to={`/user/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
+                    <NavLink to={`/Car/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
                 </div> 
             </li>
        )

@@ -1,10 +1,4 @@
-$colorBlack:#000000;
-$colorGray01: #f2f2f2;
-$colorGray02: #CCD5DB;
-$colorGray03: #e5e5e5;
-$colorGray04: #292E30;
-$colorWhite:#ffffff;
-$colorBlue: #0b299f;
+@import '../../styles/index.scss';
 
 /* list */
 .list {
@@ -50,7 +44,7 @@ $colorBlue: #0b299f;
     }
   
     &__item {
-      width: 33.3%;
+      width: 100%;
       position: relative;
       box-sizing: border-box;
       text-align: center;
@@ -59,7 +53,7 @@ $colorBlue: #0b299f;
       transition: 0.15s all ease-in-out;
       min-height: 337px;
   
-     /* @include medium {
+      @include medium {
         width: 50%;
       }
   
@@ -69,7 +63,7 @@ $colorBlue: #0b299f;
   
       @include xlarge {
         width: 25%;
-      } */
+      }
   
       &:hover {
         transform: scale(1.05);

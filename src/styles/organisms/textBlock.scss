@@ -1,0 +1,130 @@
+.textBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__text {
+        flex: 0 0 45%;
+        max-width: 45%;
+        padding: 0 0 0 7%;
+        position: relative;
+
+        &:before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        display: block;
+        min-height: 100%;
+        background: #e8e7e7;
+        width: 120%;
+        max-width: 110%;
+        height: 140%;
+        z-index: 0;
+        transform: skewX(-18deg);
+        }
+    }
+
+    &__subLabel,
+    &__label,
+    &__version,
+    &__description,
+    &__year {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__year {
+        padding: 0 20px;
+    }
+
+    &__description {
+        padding: 20px 50px 0 0;
+    }
+
+    &__subLabel {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $colorBlue;
+    }
+
+    &__version,
+    &__year {
+        background: $colorBlack;
+        transform: skewX(-18deg);
+        display: inline-block;
+        padding: 2px 40px;
+        color: $colorWhite;
+    }
+
+    &__year {
+        background: $colorBlue;
+    }
+
+    &__image {
+        flex: 0 0 55%;
+        max-width: 55%;
+
+        img {
+        max-width: 100%;
+        }
+    }
+    }
+
+    .textContent {
+    padding: 20px 7%;
+    text-align: left;
+    }
+
+    .imageContent {
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    &__item {
+        max-width: 100%;
+
+        &.-large {
+        max-width: 75%;
+        min-width: 75%;
+        }
+
+        &.-medium {
+        max-width: 65%;
+        min-width: 65%;
+        }
+
+        &.-small {
+        max-width: 35%;
+        min-width: 35%;
+        }
+
+        &.-xsmall {
+        max-width: 25%;
+        min-width: 25%;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+    }
+
+    .specs {
+    &__item {
+        padding: 20px 0;
+        border-bottom: 1px solid $colorGray03;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+        color: $colorBlue;
+        font-weight: bold;
+
+        + span {
+            color: $colorBlack;
+        }
+        }
+    }
+}
