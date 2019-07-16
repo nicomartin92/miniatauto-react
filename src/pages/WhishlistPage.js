@@ -1,21 +1,61 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 /* Components */
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import Grid from '../components/Grid/Grid';
 
-const WhishlistPage = () => {
-    return (
-        <div>
-            <Header />
+class WhishlistPage extends Component {
+    constructor() {
+        super()
+        this.state = {
+          isLoading: true,
+          loadingDelay: 500,
+          carsDataJsonFromState: [],
+          data: {}
+        }
+    }
 
-            <div className="main">
-                <h1>Whishlist page</h1>
-            </div> 
-            
-            <Footer />
-        </div>
-    );
+    /* did mount */
+    componentDidMount() {
+        setTimeout(() => {
+          this.setState({
+            isLoading: false
+          })
+        }, this.state.loadingDelay);
+    
+        /* fetching API from Json */
+        fetch('http://localhost:3003/cars')
+          .then(res => res.json())
+          .then((data) => {
+            this.setState({
+              carsDataJsonFromState: data
+            })
+            console.warn(this.state.carsDataJsonFromState)
+          })
+          .catch(console.log)
+    }
+
+    render() {
+      const whislistGrid = this.state.carsDataJsonFromState.map(item =>
+                              <Grid item={item} isLoading={this.state.isLoading}></Grid>)
+      
+        return (
+            <div>
+                <Header />
+    
+                <div className="main">
+                  <h1>Whishlist page</h1>
+              
+                  <ul className="grid">
+                    {whislistGrid}
+                  </ul>
+                </div> 
+                
+                <Footer />
+            </div>
+        )
+    }
 }
 
 export default WhishlistPage;
