@@ -32,9 +32,12 @@ class ListPage extends Component {
           isLoading: true,
           loadingDelay: 800,
           carsDataJsonFromState: [],
-          data: {}
+          data: {},
+          searchString: "",
+          users: []
         }
-        this.countStock = this.countStock.bind(this)
+      this.countStock = this.countStock.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
 
     countStock(id) {
@@ -54,6 +57,12 @@ class ListPage extends Component {
           }
         })
     }
+  
+    handleChange() {
+      this.setState({
+        searchString: this.refs.search.value
+      });
+    }
 
     /* did mount */
     componentDidMount() {
@@ -72,17 +81,29 @@ class ListPage extends Component {
             })
             console.warn(this.state.carsDataJsonFromState)
           })
-          .catch(console.log)
+        .catch(console.log)
     }
 
     render() {
+      
+        let _cars = this.state.carsDataFromState;
+        let search = this.state.searchString.trim().toLowerCase();
+
+        if (search.length > 0) {
+          _cars = _cars.filter(function(car) {
+            return  car.model.toLowerCase().match(search) ||
+                    car.brand.toLowerCase().match(search) ||
+                    car.year.toLowerCase().match(search) ||
+                    car.brandshop.toLowerCase().match(search);
+          });
+        }
 
         /* from Json */
-        const carsItemsFromJson = this.state.carsDataFromState.map(item => <List
+        const carsItemsFromJson = _cars.map(item => <List
             isLoading={this.state.isLoading}
             countStock={this.countStock}
             key={item.id}
-            item={item} />);
+            item={item} />); 
         
         return (
             <div>
@@ -90,7 +111,13 @@ class ListPage extends Component {
 
                 <div className="main">
                     <h1>List page</h1>
-
+                    <input
+                      type="text"
+                      value={this.state.searchString}
+                      ref="search"
+                      onChange={this.handleChange}
+                      placeholder="type name here"
+                    />
                     <div className="list">
                         <ul className="list__wrapper">
                         {carsItemsFromJson}
