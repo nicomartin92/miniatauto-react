@@ -47,8 +47,8 @@ class List extends Component {
                     <div>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</div>
                     <div style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</div>
                     <div>Stock:  {this.props.item.stock}</div>
-                    <button onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button> 
-                    <NavLink to={`/Car/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
+                    <button className="button" onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button> 
+                    <NavLink className="button" to={`/Car/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
                 </div> 
             </li>
        )

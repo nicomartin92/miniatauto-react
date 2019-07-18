@@ -16,3 +16,14 @@ $width1600: 1600px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.sticky {
+    position: sticky;
+    z-index: 2;
+}
+
+.squareColor {
+    display: inline-block;
+    width: 30px;
+    height: 14px;
+}

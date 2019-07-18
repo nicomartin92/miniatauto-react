@@ -62,3 +62,7 @@ button {
     fill: $colorBlack;
     stroke: $colorBlack;
 }
+
+.button {
+    @include button($colorBlack, $colorWhite);
+}

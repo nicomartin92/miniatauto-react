@@ -38,6 +38,7 @@ class ListPage extends Component {
         }
       this.countStock = this.countStock.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.year = this.year.bind(this);
     }
 
     countStock(id) {
@@ -63,6 +64,20 @@ class ListPage extends Component {
         searchString: this.refs.search.value
       });
     }
+  
+    year(year) {
+      let _cars1 = this.state.carsDataJsonFromState;
+      _cars1 = _cars1.slice().sort((a, b) => {
+        if (year === 'asc') {
+          return a.year - b.year
+        } else {
+          return b.year - a.year
+        }
+      });
+      this.setState({
+        carsDataJsonFromState: _cars1
+      });
+    }
 
     /* did mount */
     componentDidMount() {
@@ -86,17 +101,20 @@ class ListPage extends Component {
 
     render() {
       
-        let _cars = this.state.carsDataFromState;
-        let search = this.state.searchString.trim().toLowerCase();
+        let _cars = this.state.carsDataJsonFromState;
+        let search = this.state.searchString.trim().toLowerCase();   
 
         if (search.length > 0) {
           _cars = _cars.filter(function(car) {
             return  car.model.toLowerCase().match(search) ||
                     car.brand.toLowerCase().match(search) ||
+                    car.version.toLowerCase().match(search) ||
                     car.year.toLowerCase().match(search) ||
                     car.brandshop.toLowerCase().match(search);
           });
         }
+      
+        let searchCount = _cars.length;
 
         /* from Json */
         const carsItemsFromJson = _cars.map(item => <List
@@ -111,16 +129,36 @@ class ListPage extends Component {
 
                 <div className="main">
                     <h1>List page</h1>
-                    <input
-                      type="text"
-                      value={this.state.searchString}
-                      ref="search"
-                      onChange={this.handleChange}
-                      placeholder="type name here"
-                    />
+                    
                     <div className="list">
+                      <div className="sticky">
+                          <div className="list__category">
+                            <div className="list__categoryTitle">
+                              <span className="bold">Voitures</span> ({searchCount})
+                            </div>
+                            
+                          </div>
+                    
+                          <div className="list__searchBar">
+                            <div className="list__search">
+                              <h3 className="center">
+                                Chercher un modèle particulier: ({searchCount} modèles au total)
+                              </h3>
+                              <input
+                                type="text"
+                                value={this.state.searchString}
+                                ref="search"
+                                onChange={this.handleChange}
+                                placeholder="type name here"/>
+                            </div>
+                          </div>
+                  
+                          <button className="button" onClick={() => this.year('asc')} >Année asc</button>
+                          <button className="button" onClick={() => this.year('des')}>Année des</button>
+                        </div>
+                
                         <ul className="list__wrapper">
-                        {carsItemsFromJson}
+                          {carsItemsFromJson}
                         </ul>
                     </div>
                 </div>
