@@ -32,6 +32,7 @@ class ListPage extends Component {
           isLoading: true,
           loadingDelay: 800,
           carsDataJsonFromState: [],
+          originCarsDataJsonFromState: [],
           data: {},
           searchString: "",
           users: []
@@ -39,6 +40,7 @@ class ListPage extends Component {
       this.countStock = this.countStock.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.year = this.year.bind(this);
+      this.countryBrand = this.countryBrand.bind(this);
     }
 
     countStock(id) {
@@ -78,6 +80,29 @@ class ListPage extends Component {
         carsDataJsonFromState: _cars1
       });
     }
+  
+    countryBrand(country) {
+      let _countryBrand = this.state.originCarsDataJsonFromState;
+      _countryBrand = _countryBrand.filter(function(car) {
+        switch(country) {
+          case 'fr':
+            return car.country === 'fr'
+          case 'de':
+            return car.country === 'de'
+          case 'it':
+            return car.country === 'it'
+          case '1/18':
+            return car.size === '1/18'
+          case '1/12':
+            return car.size === '1/12'  
+          default:
+            return car.country === 'fr'
+        }
+      });
+      this.setState({
+        carsDataJsonFromState: _countryBrand
+      });
+    }
 
     /* did mount */
     componentDidMount() {
@@ -92,9 +117,10 @@ class ListPage extends Component {
           .then(res => res.json())
           .then((data) => {
             this.setState({
-              carsDataJsonFromState: data
+              carsDataJsonFromState: data,
+              originCarsDataJsonFromState: data
             })
-            console.warn(this.state.carsDataJsonFromState)
+            // console.warn(this.state.carsDataJsonFromState)
           })
         .catch(console.log)
     }
@@ -134,9 +160,8 @@ class ListPage extends Component {
                       <div className="sticky">
                           <div className="list__category">
                             <div className="list__categoryTitle">
-                              <span className="bold">Voitures</span> ({searchCount})
+                              <span className="bold">Voitures</span> ({searchCount}) disponibles
                             </div>
-                            
                           </div>
                     
                           <div className="list__searchBar">
@@ -149,12 +174,19 @@ class ListPage extends Component {
                                 value={this.state.searchString}
                                 ref="search"
                                 onChange={this.handleChange}
-                                placeholder="type name here"/>
+                                placeholder="type name here" />
                             </div>
                           </div>
                   
-                          <button className="button" onClick={() => this.year('asc')} >Année asc</button>
-                          <button className="button" onClick={() => this.year('des')}>Année des</button>
+                          <div className="list__filter">
+                            <button className="button" onClick={() => this.year('asc')} >Année asc</button>
+                            <button className="button" onClick={() => this.year('des')}>Année des</button>
+                            <button className="button" onClick={() => this.countryBrand('fr')}>France</button>
+                            <button className="button" onClick={() => this.countryBrand('de')}>Allemagne</button>
+                            <button className="button" onClick={() => this.countryBrand('it')}>italie</button>
+                            <button className="button" onClick={() => this.countryBrand('1/18')}>1/18</button>
+                            <button className="button" onClick={() => this.countryBrand('1/12')}>1/12</button>
+                          </div>
                         </div>
                 
                         <ul className="list__wrapper">

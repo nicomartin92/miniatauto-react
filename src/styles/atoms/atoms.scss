@@ -66,3 +66,9 @@ button {
 .button {
     @include button($colorBlack, $colorWhite);
 }
+
+input {
+    margin: 20px 0;
+    min-height: 40px;
+    padding: 5px 15px;
+}
