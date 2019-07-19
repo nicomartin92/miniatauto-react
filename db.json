@@ -565,6 +565,33 @@
       "new": true,
       "stock": 2,
       "preference": 18
+    },
+    {
+      "id": 23,
+      "country": "de",
+      "brandshop": "Paragon",
+      "brand": "Bmw",
+      "model": "X4",
+      "version": "Xdrive",
+      "year": "2014",
+      "reference": "PA01",
+      "color": "#5C6063",
+      "colorname": "sophisto gris métallique",
+      "image": "/cars/bmw/x4.jpg",
+      "views": [
+        {
+          "image1": "/cars/bmw/x4-profil.jpg",
+          "image2": "/cars/bmw/x4-rear.jpg",
+          "image3": "/cars/bmw/x4-open.jpg"
+        }
+      ],
+      "available": true,
+      "price": "55",
+      "size": "1/18",
+      "description": "Les BMW X4 M sont des voitures de caractère. Elles combinent l'athlétisme d'une voiture M avec le tempérament expressif d'une BMW X4. Le résultat : quatre voitures de sport très impressionnantes pour un maximum de passion et d'adrénaline.",
+      "new": true,
+      "stock": 1,
+      "preference": 19
     }
   ]
 }

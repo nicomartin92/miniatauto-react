@@ -64,76 +64,79 @@ class CarPage extends Component {
                             <div>
                                 <h3>Modèle: {car.reference}</h3>
                                 <h5 className="card-title">{car.brand} {car.model} {car.version}</h5>
-                                <div class="textBlock">
-                                    <div class="textBlock__text">
-                                        <h2 class="textBlock__subLabel">{car.brandshop}</h2>
-                                        <h1 class="textBlock__label">
+                                <div className="textBlock">
+                                    <div className="textBlock__text">
+                                        <h2 className="textBlock__subLabel">{car.brandshop}</h2>
+                                        <h1 className="textBlock__label">
                                             { car.brand } { car.model }
                                         </h1>
-                                        <h3 class="textBlock__version">{car.version}</h3>
-                                        <span class="textBlock__year">{ car.year }</span>
+                                        <h3 className="textBlock__version">{car.version}</h3>
+                                        <span className="textBlock__year">{ car.year }</span>
                                         </div>
-                                        <div class="textBlock__image">
+                                        <div className="textBlock__image">
                                         <img src={car.image} loading="lazy" alt={car.model} />
                                     </div>
                                 </div>
 
-                                <div class="imageContent">
-                                    <div class="imageContent__item -medium">
+                                <div className="imageContent">
+                                    <div className="imageContent__item -medium">
                                         <img src={car.views[0].image1} loading="lazy" alt={car.model} />   
                                     </div>
-                                    <div class="imageContent__item -small">
-                                        <div class="textContent">
-                                            <h3 class="subTitle">Détails</h3>
-                                            <p class="textContent__description">
+                                    <div className="imageContent__item -small">
+                                        <div className="textContent">
+                                            <h3 className="subTitle">Détails</h3>
+                                            <p className="textContent__description">
                                                 { car.description }
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="imageContent">
-                                    <div class="imageContent__item -small">
-                                        <div class="textContent">
-                                            <h3 class="subTitle">Caractéristiques</h3>
-                                            <ul class="specs">
-                                                <li class="specs__item">
+                                <div className="imageContent">
+                                    <div className="imageContent__item -small">
+                                        <div className="textContent">
+                                            <h3 className="subTitle">Caractéristiques</h3>
+                                            <ul className="specs">
+                                                <li className="specs__item">
                                                     <span>Référence:</span>
                                                     <span>{ car.reference }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Producteur:</span>
                                                     <span>{ car.brandshop }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Marque:</span>
                                                     <span>{ car.brand }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Modèle:</span>
                                                     <span>{ car.model }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Version:</span>
                                                     <span>{ car.version }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Année:</span>
                                                     <span>{ car.year }</span>
                                                 </li>
-                                                <li class="specs__item">
+                                                <li className="specs__item">
                                                     <span>Couleur:</span>
                                                     <span>
-                                                    <span class="skew" style={{ backgroundColor: car.color }} />
+                                                    <span className="skew" style={{ backgroundColor: car.color }} />
                                                         { car.colorname }
                                                     </span>
                                                 </li>
                                             </ul>  
                                         </div>
                                     </div>
-                                    <div class="imageContent__item -medium">
+                                    <div className="imageContent__item -medium">
                                         <img src={car.views[0].image2} loading="lazy" alt={car.model} />   
                                     </div>
+                                </div>
+                                <div className="imageContent__item -medium">
+                                    <img src={car.views[0].image3} loading="lazy" alt={car.model} />   
                                 </div>
                             </div>
                         ))}
