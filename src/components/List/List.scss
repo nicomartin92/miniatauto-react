@@ -25,7 +25,12 @@
     &__searchBar {
       padding: 30px 0;
     }
-  
+
+    &__searchMain {
+      display: flex;
+      justify-content: center;
+    }
+
     &__filterButton {
       padding: 20px;
       border-left: 1px solid $colorGray03;

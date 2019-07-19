@@ -41,6 +41,7 @@ class ListPage extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.year = this.year.bind(this);
       this.countryBrand = this.countryBrand.bind(this);
+      this.clearAll = this.clearAll.bind(this);
     }
 
     countStock(id) {
@@ -101,6 +102,13 @@ class ListPage extends Component {
       });
       this.setState({
         carsDataJsonFromState: _countryBrand
+      });
+    }
+    
+    clearAll() {
+      let _clearAll = this.state.originCarsDataJsonFromState;
+      this.setState({
+        carsDataJsonFromState: _clearAll
       });
     }
 
@@ -169,12 +177,16 @@ class ListPage extends Component {
                               <h3 className="center">
                                 Chercher un modèle particulier: ({searchCount} modèles au total)
                               </h3>
-                              <input
-                                type="text"
-                                value={this.state.searchString}
-                                ref="search"
-                                onChange={this.handleChange}
-                                placeholder="type name here" />
+                              <div className="list__searchMain">
+                                <input
+                                  type="text"
+                                  value={this.state.searchString}
+                                  ref="search"
+                                  onChange={this.handleChange}
+                                  placeholder="type name here" />
+                                
+                                <button className="button" onClick={this.clearAll}>Clear all</button>
+                               </div>
                             </div>
                           </div>
                   
