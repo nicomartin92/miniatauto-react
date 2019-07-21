@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
+import PubSub from 'pubsub-js';
+
 import './List.scss'
 
 /* const Card = (props) => {
@@ -14,8 +16,13 @@ import './List.scss'
     )
 } */
 
-
 class List extends Component {
+
+    componentDidMount() {
+        PubSub.subscribe('world', ()=> {
+            console.warn('received');
+        });
+    }
     
     render() {
         const unavailableStyles = {
