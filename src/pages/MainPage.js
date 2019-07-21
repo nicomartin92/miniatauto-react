@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 /* Components */
 import Header from '../components/Header/Header';
+import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
 
@@ -113,6 +114,7 @@ class MainPage extends Component {
         
         return(
             <div>
+                <PanelNav />
                 <Header />
     
                 <div className="main">

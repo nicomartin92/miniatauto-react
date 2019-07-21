@@ -19,12 +19,7 @@ import CarPage from './pages/CarPage';
 import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
-  
-  
   render() {
-
-    
-
     return (
       <div className="App">
         <Router>
@@ -37,12 +32,6 @@ class App extends Component {
             <Redirect to='/404' />
           </Switch> 
         </Router>
-
-        <div className="main">
-
-          
-        </div>
-
       </div>
     ) 
   }

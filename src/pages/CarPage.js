@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 /* Components */
 import Header from '../components/Header/Header';
+import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 
 /* const CarPage = () => {
@@ -57,6 +58,7 @@ class CarPage extends Component {
 
         return (
             <div>
+                <PanelNav />
                 <Header />
     
                     <div className="main">

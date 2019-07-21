@@ -16,6 +16,9 @@ class Headers extends Component {
             <header className="nav"
                 style={{ color: '#000000' }}>
                 <li>
+                    <button onClick={this.handleClick}>Cars</button>  
+                </li>
+                <li>
                     <NavLink exact={true} to="/" activeClassName="-active">Accueil</NavLink>
                 </li>
                 <li>
@@ -26,9 +29,6 @@ class Headers extends Component {
                 </li>
                 <li>
                     <NavLink to="/user" activeClassName="-active">User</NavLink>
-                </li>
-                <li>
-                    <button onClick={this.handleClick}>Pass</button>  
                 </li>
             </header>
         )
