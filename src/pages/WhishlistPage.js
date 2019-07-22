@@ -38,8 +38,16 @@ class WhishlistPage extends Component {
     }
 
     render() {
-      const whislistGrid = this.state.carsDataJsonFromState.map(item =>
-                              <Grid item={item} isLoading={this.state.isLoading}></Grid>)
+      
+      
+      let _cars = this.state.carsDataJsonFromState;
+      
+      _cars = _cars.filter(car => car.preference > 0).sort((a, b) => {
+        return a.preference - b.preference
+      });
+      
+      const whislistGrid = _cars.map(item =>
+        <Grid item={item} isLoading={this.state.isLoading}></Grid>);
       
         return (
             <div>
