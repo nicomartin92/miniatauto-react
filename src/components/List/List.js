@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
-import PubSub from 'pubsub-js';
 
 import './List.scss'
 
@@ -17,13 +16,6 @@ import './List.scss'
 } */
 
 class List extends Component {
-
-    componentDidMount() {
-        PubSub.subscribe('world', ()=> {
-            console.warn('received');
-        });
-    }
-    
     render() {
         const unavailableStyles = {
             opacity: "0.5"

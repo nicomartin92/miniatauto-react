@@ -8,7 +8,7 @@ class Headers extends Component {
 
     handleClick() {
         console.warn('send');
-        PubSub.publish('world');
+        PubSub.publish('open:panelNav');
     }
 
     render() {
