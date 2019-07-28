@@ -33,7 +33,7 @@ class WhishlistPage extends Component {
             this.setState({
               carsDataJsonFromState: data
             })
-            console.warn(this.state.carsDataJsonFromState)
+            // console.warn(this.state.carsDataJsonFromState)
           })
           .catch(console.log)
     }
