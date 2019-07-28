@@ -31,6 +31,9 @@ class Headers extends Component {
                     <NavLink to="/whishlist" activeClassName="-active">Whishlist</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/status" activeClassName="-active">Status</NavLink>
+                </li>
+                <li>
                     <NavLink to="/user" activeClassName="-active">User</NavLink>
                 </li>
                 <li onClick={this.triggerSearch}>

@@ -48,7 +48,9 @@ export class Autocomplete extends Component {
                     car.brand.toLowerCase().match(userInput.toLowerCase()) ||
                     car.version.toLowerCase().match(userInput.toLowerCase()) ||
                     car.year.toLowerCase().match(userInput.toLowerCase()) ||
-                    car.brandshop.toLowerCase().match(userInput.toLowerCase());
+                    car.brandshop.toLowerCase().match(userInput.toLowerCase()) ||
+                    car.price.toLowerCase().match(userInput.toLowerCase()) ||
+                    car.country.toLowerCase().match(userInput.toLowerCase());
     });
 
     this.setState({

@@ -41,7 +41,7 @@
 }
 
 .skew {
-    @include skew(20px);
+    @include skew(20px, $colorBlack);
 }
 
 button {

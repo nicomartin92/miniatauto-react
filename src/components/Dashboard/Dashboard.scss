@@ -1,0 +1,14 @@
+@import '../../styles/index.scss';
+
+.gridTable {
+    display: grid;
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr) repeat(2, 1fr);
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #ddd;
+        }
+    }
+}

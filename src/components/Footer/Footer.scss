@@ -1,0 +1,17 @@
+@import '../../styles/index.scss';
+
+.footer {
+    position: fixed;
+    background: $colorBlue;
+    transform: skew(0, -3deg);
+    left: 0;
+    bottom: -29px;
+    width: 100%;
+    padding: 20px 20px 50px 20px;
+    text-align: center;
+
+    &__wrapper {
+        color: $colorWhite;
+        transform: skew(0, 3deg);
+    }
+}

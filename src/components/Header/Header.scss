@@ -20,7 +20,9 @@
         color: $colorBlack;
 
         &.-active {
-            color: blue;
+            color: $colorBlue;
+
+            @include skew(14px, $colorBlue);
         }
     }
 }

@@ -97,7 +97,11 @@ class ListPage extends Component {
           case '1/18':
             return car.size === '1/18'
           case '1/12':
-            return car.size === '1/12'  
+            return car.size === '1/12' 
+          case 'available':
+            return car.available === true
+          case 'not available':
+            return car.available === false       
           default:
             return car.country === 'fr'
         }
@@ -170,16 +174,10 @@ class ListPage extends Component {
                     
                     <div className="list">
                       <div className="sticky">
-                          <div className="list__category">
-                            <div className="list__categoryTitle">
-                              <span className="bold">Voitures</span> ({searchCount}) disponibles
-                            </div>
-                          </div>
-                    
                           <div className="list__searchBar">
                             <div className="list__search">
                               <h3 className="center">
-                                Chercher un modèle particulier: ({searchCount} modèles au total)
+                                Chercher un modèle particulier: ({searchCount} disponibles)
                               </h3>
                               <div className="list__searchMain">
                                 <input
@@ -202,6 +200,8 @@ class ListPage extends Component {
                             <button className="button" onClick={() => this.countryBrand('it')}>italie</button>
                             <button className="button" onClick={() => this.countryBrand('1/18')}>1/18</button>
                             <button className="button" onClick={() => this.countryBrand('1/12')}>1/12</button>
+                            <button className="button" onClick={() => this.countryBrand('available')}>A Vendre</button>
+                            <button className="button" onClick={() => this.countryBrand('not available')}>Vendus</button>
                           </div>
                         </div>
                 

@@ -50,6 +50,6 @@
     }
 
     .skew {
-        @include skew(12px);
+        @include skew(12px, $colorBlack);
     }
 }
