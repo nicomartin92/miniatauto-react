@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
+import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 /* Datas */
 import carsData from '../db';
@@ -162,6 +163,7 @@ class ListPage extends Component {
             <div>
                 <PanelNav />
                 <Header />
+                <Autocomplete />
 
                 <div className="main">
                     <h1>List page</h1>

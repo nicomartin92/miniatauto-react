@@ -77,3 +77,14 @@ a {
     text-decoration: none;
     color: $colorBlack;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.inputSearch {
+    border: none;
+    font-size: 50px;
+    border-bottom: 1px solid $colorBlack;
+    outline: none;
+}

@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
+import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 /* const CarPage = () => {
     return (
@@ -60,8 +61,9 @@ class CarPage extends Component {
             <div>
                 <PanelNav />
                 <Header />
+                <Autocomplete />
     
-                    <div className="main">
+                <div className="main">
                         {showCorrectCar.map((car) => (
                             <div>
                                 <h3>Modèle: {car.reference}</h3>

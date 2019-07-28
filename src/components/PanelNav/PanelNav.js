@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import PubSub from 'pubsub-js'
+import PubSub from 'pubsub-js';
 
 import './PanelNav.scss';
 
@@ -45,6 +45,7 @@ class PanelNav extends Component {
             })
         }
     }
+    
 
     render() {
         return (

@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
+import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 /* Datas */
 import carsData from '../db';
@@ -76,7 +77,7 @@ class MainPage extends Component {
             this.setState({
               carsDataJsonFromState: data
             })
-            console.warn(this.state.carsDataJsonFromState)
+            // console.warn(this.state.carsDataJsonFromState)
           })
           .catch(console.log)
     }
@@ -116,6 +117,7 @@ class MainPage extends Component {
             <div>
                 <PanelNav />
                 <Header />
+                <Autocomplete />
     
                 <div className="main">
                     <h1>Main page1</h1>

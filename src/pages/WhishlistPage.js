@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Grid from '../components/Grid/Grid';
+import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 class WhishlistPage extends Component {
     constructor() {
@@ -53,6 +54,7 @@ class WhishlistPage extends Component {
             <div>
                 <PanelNav />
                 <Header />
+                <Autocomplete />
     
                 <div className="main">
                   <h1>Whishlist page</h1>

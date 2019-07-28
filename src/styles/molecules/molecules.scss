@@ -1,0 +1,7 @@
+.buttonClose {
+    @include buttonClose(70px, 40px, $colorBlack, $colorBlack);
+
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

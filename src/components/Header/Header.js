@@ -7,8 +7,11 @@ import './Header.scss';
 class Headers extends Component {
 
     handleClick() {
-        console.warn('send');
         PubSub.publish('open:panelNav');
+    }
+
+    triggerSearch() {
+        PubSub.publish('open:search');
     }
 
     render() {
@@ -29,6 +32,9 @@ class Headers extends Component {
                 </li>
                 <li>
                     <NavLink to="/user" activeClassName="-active">User</NavLink>
+                </li>
+                <li onClick={this.triggerSearch}>
+                    search
                 </li>
             </header>
         )
