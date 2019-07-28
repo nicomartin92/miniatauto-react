@@ -592,6 +592,58 @@
       "new": true,
       "stock": 1,
       "preference": 19
+    },
+    {
+      "id": 24,
+      "country": "fr",
+      "brandshop": "Ottomobile",
+      "brand": "Citroen",
+      "model": "Xsara",
+      "version": "Sport Ph.1",
+      "year": "2000",
+      "reference": "OT305",
+      "color": "#CC3A32",
+      "colorname": "rouge",
+      "image": "/cars/citroen/citroen-xsara-sport-ph1.jpg",
+      "views": [
+        {
+          "image1": "/cars/citroen/citroen-xsara-sport-ph1-profil.jpg",
+          "image2": "/cars/citroen/citroen-xsara-sport-ph1-rear.jpg"
+        }
+      ],
+      "available": true,
+      "price": "90",
+      "size": "1/18",
+      "description": "La Xsara venait remplacer la ZX en gardant la même recette. Une allure discrète mais un châssis exceptionnel. Pourtant, grâce à ses multiples victoires en rallyes avec Sébastien Loeb, la marque aux chevrons n’oublie pas la sportivité.",
+      "new": true,
+      "stock": 2,
+      "preference": 20
+    },
+    {
+      "id": 25,
+      "country": "fr",
+      "brandshop": "Ottomobile",
+      "brand": "Renault",
+      "model": "5",
+      "version": "Baccara",
+      "year": "1984",
+      "reference": "OT764",
+      "color": "#584848",
+      "colorname": "Brun Arabica",
+      "image": "/cars/renault/renault-super-5-baccara.jpg",
+      "views": [
+        {
+          "image1": "/cars/renault/renault-super-5-baccara-profil.jpg",
+          "image2": "/cars/renault/renault-super-5-baccara-rear.jpg"
+        }
+      ],
+      "available": true,
+      "price": "90",
+      "size": "1/18",
+      "description": "En 1988, 4 ans après son lancement, Renault offre à sa Super 5 une version haut de gamme. Celle-ci reçoit le quatre cylindres de 1721 cm3 de 90 ch.",
+      "new": true,
+      "stock": 2,
+      "preference": 21
     }
   ]
 }

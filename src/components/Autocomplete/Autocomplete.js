@@ -78,6 +78,8 @@ export class Autocomplete extends Component {
   }
 
   render() {
+
+    const carLength = this.state.filteredOptions.length;
     return (
         <div className={this.state.isExpanded ? "search -expanded": "search"}>
             <div className="search__wrapper">
@@ -97,15 +99,19 @@ export class Autocomplete extends Component {
                     ref="search"
                 />
 
+                <div className="search__carResults">
+                    Résultats:<span className="bold"> ({carLength})</span> voiture(s)
+                </div> 
+
                 <ul className={this.state.isTyping ? "search__list -expanded": "search__list"}>
                     {this.state.filteredOptions.map((car) => (
                         <li className="search__listItem">
-                            <NavLink className="search__listLink" to={`/Car/${car.reference}`}>
+                            <NavLink className="search__listLink" to={`/Car/${car.reference}`} onClick={() => this.displaySearch(false)}>
                                 <img className="search__listImage"
                                     src={car.views[0].image1} 
                                     alt={`${this.state.brand} ${this.state.model} ${this.state.version}`} /> 
                                 <div>
-                                    <span class="bold">{car.brand} {car.model} {car.version}</span> - {car.brandshop}
+                                    <span class="bold">{car.brand} {car.model} {car.version}</span> - <span class="skew">{car.brandshop}</span>
                                 </div>
                             </NavLink>
                         </li> 

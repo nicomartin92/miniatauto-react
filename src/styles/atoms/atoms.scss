@@ -41,13 +41,7 @@
 }
 
 .skew {
-    background: $colorBlack;
-    transform: skewX(-18deg);
-    display: inline-block;
-    padding: 2px 20px;
-    height: auto;
-    color: white;
-    font-size: 20px;
+    @include skew(20px);
 }
 
 button {

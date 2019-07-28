@@ -32,7 +32,8 @@
         }
     }
 
-    &__listItem {
+    &__listItem,
+    &__carResults {
         padding: 5px;
         text-align: left;
     }
@@ -46,5 +47,9 @@
         width: 90px;
         height: auto;
         margin: 0 10px 0;
+    }
+
+    .skew {
+        @include skew(12px);
     }
 }

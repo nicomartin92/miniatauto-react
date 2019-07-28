@@ -152,3 +152,13 @@
   background: $colorBg;
   color: $color;
 }
+
+@mixin skew($fontSize) {
+  background: $colorBlack;
+  transform: skewX(-18deg);
+  display: inline-block;
+  padding: 2px $fontSize;
+  height: auto;
+  color: white;
+  font-size: $fontSize;
+}
