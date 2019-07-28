@@ -48,7 +48,7 @@ class WhishlistPage extends Component {
       });
       
       const whislistGrid = _cars.map(item =>
-        <Grid item={item} isLoading={this.state.isLoading}></Grid>);
+        <Grid item={item} isLoading={this.state.isLoading} key={item.id}></Grid>);
       
         return (
             <div>

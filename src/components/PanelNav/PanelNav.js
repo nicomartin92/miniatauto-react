@@ -29,7 +29,7 @@ class PanelNav extends Component {
             this.setState({
               carsDataJsonFromState: data
             })
-            console.warn(this.state.carsDataJsonFromState)
+            // console.warn(this.state.carsDataJsonFromState)
           })
           .catch(console.log)
     }
@@ -50,6 +50,8 @@ class PanelNav extends Component {
     render() {
         return (
             <div className={this.state.isOpen ? "panelNav expanded" : "panelNav"}>
+                <div className={this.state.isOpen ? "overlay expanded" : "overlay"}
+                     onClick={() => this.panelSwitcher(false)}></div>
                 <button className="buttonClose outer"
                         onClick={() => this.panelSwitcher(false)}>
                     <div className="inner">
@@ -59,7 +61,7 @@ class PanelNav extends Component {
                 <h3>cars</h3>
                 <ul>
                     {this.state.carsDataJsonFromState.map((car) => (
-                        <li>  
+                        <li key={car.id}>  
                             <NavLink className="panelNav__item" to={`/Car/${car.reference}`} onClick={() => this.panelSwitcher(false)}>
                                 <div className="panelNav__label">
                                     {car.brand} {car.model} {car.version}

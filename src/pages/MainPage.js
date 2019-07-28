@@ -133,22 +133,22 @@ class MainPage extends Component {
                     <h2>Cars display from Json with direct node</h2>
 
                     {this.state.carsDataJsonFromState.map((car) => (
-                        <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">{car.brand}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">
-                            { car.brand &&
-                            <span>
-                            Completed
-                            </span>
-                            }
-                            { !car.content &&
-                            <span>
-                                Pending
-                            </span>
-                            }              
-                            </h6>
-                        </div>
+                        <div className="card" key={car.id}>
+                            <div className="card-body">
+                                <h5 className="card-title">{car.brand}</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">
+                                { car.brand &&
+                                <span>
+                                Completed
+                                </span>
+                                }
+                                { !car.content &&
+                                <span>
+                                    Pending
+                                </span>
+                                }              
+                                </h6>
+                            </div>
                         </div>
                     ))}
 

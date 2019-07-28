@@ -82,3 +82,23 @@ a {
     border-bottom: 1px solid $colorBlack;
     outline: none;
 }
+
+.overlay {
+    position: fixed;
+    left: 50vw;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $colorGray04;
+    opacity: .5;
+    left: 120vw;
+    transition: right 1s cubic-bezier(.19,1,.22,1),left 1s cubic-bezier(.19,1,.22,1);
+
+    &.expanded {
+        left: 120vw;
+
+        @include large {
+            left: 50vw;
+        }
+    }
+}

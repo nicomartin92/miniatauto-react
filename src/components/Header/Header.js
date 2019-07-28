@@ -34,7 +34,7 @@ class Headers extends Component {
                     <NavLink to="/user" activeClassName="-active">User</NavLink>
                 </li>
                 <li onClick={this.triggerSearch}>
-                    search
+                    <button>search</button>
                 </li>
             </header>
         )

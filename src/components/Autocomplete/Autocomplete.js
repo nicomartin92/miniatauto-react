@@ -105,7 +105,7 @@ export class Autocomplete extends Component {
 
                 <ul className={this.state.isTyping ? "search__list -expanded": "search__list"}>
                     {this.state.filteredOptions.map((car) => (
-                        <li className="search__listItem">
+                        <li className="search__listItem" key={car.id}>
                             <NavLink className="search__listLink" to={`/Car/${car.reference}`} onClick={() => this.displaySearch(false)}>
                                 <img className="search__listImage"
                                     src={car.views[0].image1} 
