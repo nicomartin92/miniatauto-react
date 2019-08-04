@@ -67,6 +67,12 @@ class StatusPage extends Component {
                     <h1>Dashboard</h1>
 
                     <div className="gridTable">
+                        <div className="gridTable__row">
+                            <div className="gridTable__cell">Status:</div>
+                            <div className="gridTable__cell">Garder</div>
+                            <div className="gridTable__cell">A vendre</div>
+                            <div className="gridTable__cell">Vendus</div>
+                        </div>
                         {carDashboard}
                     </div>
                 </div>
