@@ -23,9 +23,9 @@ class Grid extends Component {
                     </div>
                     <h2>Loading card ...</h2>
                 </li>
-            ) 
+            )
         }
-        
+
         return (
             <li key={this.props.item.id} className="grid__item" style={this.props.item.available ? availableStyles : unavailableStyles} >
                 <div className="grid__preference">

@@ -4,37 +4,37 @@ import './Dashboard.scss';
 
 class Dashboard extends Component {
 
-    toSell () {
-        if(this.props.item.available && this.props.item.stock > 0) {
-            return(
+    toSell() {
+        if (this.props.item.available && this.props.item.stock > 0) {
+            return (
                 <div>
-                     <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
+                    <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
                 </div>
             )
         }
     }
 
-    sold () {
-        if(!this.props.item.available && this.props.item.stock < 1 && this.props.item.sold) {
-            return(
+    sold() {
+        if (!this.props.item.available && this.props.item.stock < 1 && this.props.item.sold) {
+            return (
                 <div>
-                     <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
+                    <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
                 </div>
             )
         }
     }
 
-    keep () {
-        if(this.props.item.keep) {
-            return(
+    keep() {
+        if (this.props.item.keep) {
+            return (
                 <div>
-                     <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
+                    <img width="120" src={this.props.item.views[0].image1} alt={`${this.props.item.brand} ${this.props.item.model} ${this.props.item.version}`} />
                 </div>
             )
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="gridTable__row">
                 <div className="gridTable__cell">
@@ -46,7 +46,7 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="gridTable__cell">
-                   {this.toSell()}
+                    {this.toSell()}
                 </div>
 
                 <div className="gridTable__cell">

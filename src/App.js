@@ -32,10 +32,10 @@ class App extends Component {
             <Route path="/Car/:id" component={CarPage} />
             <Route path="/error" component={ErrorPage} exact />
             <Redirect to='/404' />
-          </Switch> 
+          </Switch>
         </Router>
       </div>
-    ) 
+    )
   }
 }
 

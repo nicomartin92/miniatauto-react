@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /* Components */
 import Header from '../components/Header/Header';
@@ -29,31 +29,31 @@ class StatusPage extends Component {
     constructor() {
         super()
         this.state = {
-          carsDataJsonFromState: [],
-          data: {}
+            carsDataJsonFromState: [],
+            data: {}
         }
     }
 
     /* did mount */
     componentDidMount() {
         setTimeout(() => {
-          this.setState({
-            isLoading: false
-          })
+            this.setState({
+                isLoading: false
+            })
         }, this.state.loadingDelay);
-    
+
         /* fetching API from Json */
         fetch('http://localhost:3003/cars')
-          .then(res => res.json())
-          .then((data) => {
-            this.setState({
-              carsDataJsonFromState: data
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({
+                    carsDataJsonFromState: data
+                })
+                // console.warn(this.state.carsDataJsonFromState)
             })
-            // console.warn(this.state.carsDataJsonFromState)
-          })
-          .catch(console.log)
+            .catch(console.log)
     }
-    
+
     render() {
         const carDashboard = this.state.carsDataJsonFromState.map(car => <Dashboard item={car} key={car.id} />);
 
@@ -62,7 +62,7 @@ class StatusPage extends Component {
                 <PanelNav />
                 <Header />
                 <Autocomplete />
-    
+
                 <div className="main">
                     <h1>Dashboard</h1>
 
@@ -76,11 +76,11 @@ class StatusPage extends Component {
                         {carDashboard}
                     </div>
                 </div>
-                
+
                 <Footer />
             </div>
         )
-    } 
+    }
 }
 
 export default StatusPage;
