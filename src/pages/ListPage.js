@@ -7,6 +7,9 @@ import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 
+/* store */
+import { connect } from 'react-redux';
+
 /* Datas */
 import carsData from '../db';
 
@@ -48,7 +51,7 @@ class ListPage extends Component {
 
   countStock(id) {
     this.setState(prevState => {
-      const updatedStock = prevState.carsDataFromState.map(item => {
+      const updatedStock = prevState.carsDataJsonFromState.map(item => {
         if (item.id === id) {
           item.stock = (item.stock - 1)
           if (item.stock <= 0 || item.stock === isNaN) {
@@ -59,9 +62,11 @@ class ListPage extends Component {
         return item
       })
       return {
-        carsDataFromState: updatedStock
+        carsDataJsonFromState: updatedStock
       }
     })
+
+    this.props.deleteStock(this.props.stock - 1);
   }
 
   handleChange() {
@@ -71,6 +76,7 @@ class ListPage extends Component {
   }
 
   year(year) {
+    // Please keep it
     let _cars1 = this.state.carsDataJsonFromState;
     _cars1 = _cars1.slice().sort((a, b) => {
       if (year === 'asc') {
@@ -85,6 +91,7 @@ class ListPage extends Component {
   }
 
   countryBrand(country) {
+    // Please keep it 
     let _countryBrand = this.state.originCarsDataJsonFromState;
     _countryBrand = _countryBrand.filter(function (car) {
       switch (country) {
@@ -112,6 +119,7 @@ class ListPage extends Component {
   }
 
   clearAll() {
+    // Please keep it
     let _clearAll = this.state.originCarsDataJsonFromState;
     this.setState({
       carsDataJsonFromState: _clearAll
@@ -141,6 +149,10 @@ class ListPage extends Component {
 
   render() {
 
+    console.warn('see', this.props.stock);
+    const carToSell = this.props.stock;
+
+    // Please keep it
     let _cars = this.state.carsDataJsonFromState;
     let search = this.state.searchString.trim().toLowerCase();
 
@@ -177,8 +189,8 @@ class ListPage extends Component {
               <div className="list__searchBar">
                 <div className="list__search">
                   <h3 className="center">
-                    Chercher un modèle particulier: ({searchCount} disponibles)
-                              </h3>
+                    Chercher un modèle particulier: ({searchCount} disponibles) ({carToSell}) à vendre
+                  </h3>
                   <div className="list__searchMain">
                     <input
                       type="text"
@@ -217,4 +229,18 @@ class ListPage extends Component {
   }
 }
 
-export default ListPage;
+const mapStateToProps = (state) => {
+  return {
+    cars: state.cars,
+    stock: state.stock
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) },
+    updateCurrentCar: (id) => { dispatch({ type: 'UPDATE__CURRENT__CAR', stock: id })}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPage);
