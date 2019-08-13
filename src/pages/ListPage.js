@@ -126,7 +126,7 @@ class ListPage extends Component {
   }
 
   updateStock() {
-    this.props.stock(4);
+    this.props.deleteStock(this.props.stock - 1);
   }
 
   /* did mount */
@@ -153,7 +153,7 @@ class ListPage extends Component {
   render() {
 
     console.warn('see', this.props.stock);
-    const carToSell = this.props.cars.length;
+    const carToSell = this.props.stock;
 
     // Please keep it
     let _cars = this.state.carsDataJsonFromState;
@@ -235,13 +235,14 @@ class ListPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cars: state.cars.filter(toSell => toSell.available === true)
+    cars: state.cars.filter(toSell => toSell.available === true),
+    stock: state.cars.filter(toSell => toSell.available === true).length
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    stock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) }
+    deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) }
   }
 }
 

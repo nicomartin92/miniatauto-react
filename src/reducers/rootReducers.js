@@ -759,10 +759,10 @@ const rootReducers = (state = initialState, action) => {
     if(action.type === 'UPDATE__STOCK') {
         let newStock = action.stock
         
-        console.warn(newStock);
+        console.warn(newStock)
         return {
             ...state,
-            stock: 5
+            stock: newStock
         }
     }
     
