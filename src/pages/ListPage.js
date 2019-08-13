@@ -47,12 +47,11 @@ class ListPage extends Component {
     this.year = this.year.bind(this);
     this.countryBrand = this.countryBrand.bind(this);
     this.clearAll = this.clearAll.bind(this);
-    this.updateStock = this.updateStock.bind(this);
   }
 
   countStock(id) {
     this.setState(prevState => {
-      const updatedStock = prevState.carsDataFromState.map(item => {
+      const updatedStock = prevState.carsDataJsonFromState.map(item => {
         if (item.id === id) {
           item.stock = (item.stock - 1)
           if (item.stock <= 0 || item.stock === isNaN) {
@@ -63,9 +62,11 @@ class ListPage extends Component {
         return item
       })
       return {
-        carsDataFromState: updatedStock
+        carsDataJsonFromState: updatedStock
       }
     })
+
+    this.props.deleteStock(this.props.stock - 1);
   }
 
   handleChange() {
@@ -123,10 +124,6 @@ class ListPage extends Component {
     this.setState({
       carsDataJsonFromState: _clearAll
     });
-  }
-
-  updateStock() {
-    this.props.deleteStock(this.props.stock - 1);
   }
 
   /* did mount */
@@ -194,7 +191,6 @@ class ListPage extends Component {
                   <h3 className="center">
                     Chercher un modèle particulier: ({searchCount} disponibles) ({carToSell}) à vendre
                   </h3>
-                  <button className="button" onClick={this.updateStock}>Enlever une voiture</button>
                   <div className="list__searchMain">
                     <input
                       type="text"
@@ -235,14 +231,15 @@ class ListPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cars: state.cars.filter(toSell => toSell.available === true),
-    stock: state.cars.filter(toSell => toSell.available === true).length
+    cars: state.cars,
+    stock: state.stock
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) }
+    deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) },
+    updateCurrentCar: (id) => { dispatch({ type: 'UPDATE__CURRENT__CAR', stock: id })}
   }
 }
 

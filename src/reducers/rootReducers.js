@@ -1,5 +1,5 @@
 const initialState = {
-    stock: 1,
+    stock: 14,
     cars: [
         {
             "id": 1,
@@ -756,16 +756,16 @@ const initialState = {
 }
 
 const rootReducers = (state = initialState, action) => {
-    if(action.type === 'UPDATE__STOCK') {
+    if (action.type === 'UPDATE__STOCK') {
         let newStock = action.stock
-        
+
         console.warn(newStock)
         return {
             ...state,
             stock: newStock
         }
     }
-    
+
     return state;
 }
 
