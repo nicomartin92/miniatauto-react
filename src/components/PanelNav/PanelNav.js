@@ -16,22 +16,22 @@ class PanelNav extends Component {
     }
 
     componentDidMount() {
-        PubSub.subscribe('open:panelNav', ()=> {
+        PubSub.subscribe('open:panelNav', () => {
             this.setState({
                 isOpen: true
-              })
+            })
         });
 
         /* fetching API from Json */
         fetch('http://localhost:3003/cars')
-          .then(res => res.json())
-          .then((data) => {
-            this.setState({
-              carsDataJsonFromState: data
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({
+                    carsDataJsonFromState: data
+                })
+                // console.warn(this.state.carsDataJsonFromState)
             })
-            // console.warn(this.state.carsDataJsonFromState)
-          })
-          .catch(console.log)
+            .catch(console.log)
     }
 
     panelSwitcher(value) {
@@ -45,15 +45,15 @@ class PanelNav extends Component {
             })
         }
     }
-    
+
 
     render() {
         return (
             <div className={this.state.isOpen ? "panelNav expanded" : "panelNav"}>
                 <div className={this.state.isOpen ? "overlay expanded" : "overlay"}
-                     onClick={() => this.panelSwitcher(false)}></div>
+                    onClick={() => this.panelSwitcher(false)}></div>
                 <button className="buttonClose outer"
-                        onClick={() => this.panelSwitcher(false)}>
+                    onClick={() => this.panelSwitcher(false)}>
                     <div className="inner">
                         <label>Fermer</label>
                     </div>
@@ -61,7 +61,7 @@ class PanelNav extends Component {
                 <h3>cars</h3>
                 <ul>
                     {this.state.carsDataJsonFromState.map((car) => (
-                        <li key={car.id}>  
+                        <li key={car.id}>
                             <NavLink className="panelNav__item" to={`/Car/${car.reference}`} onClick={() => this.panelSwitcher(false)}>
                                 <div className="panelNav__label">
                                     {car.brand} {car.model} {car.version}
