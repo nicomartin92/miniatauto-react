@@ -6,6 +6,8 @@ import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Dashboard from '../components/Dashboard/Dashboard';
+import Notifications from '../components/Dashboard/Notifications';
+import ProjectList from '../components/Projects/ProjectList';
 
 /* const CarPage = () => {
     return (
@@ -65,6 +67,15 @@ class StatusPage extends Component {
 
                 <div className="main">
                     <h1>Dashboard</h1>
+
+                    <div className="dashboard">
+                        <div>
+                            <ProjectList />
+                        </div>
+                        <div>
+                            <Notifications />
+                        </div>
+                    </div>
 
                     <div className="gridTable">
                         <div className="gridTable__row">

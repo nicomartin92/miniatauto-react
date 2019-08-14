@@ -18,6 +18,7 @@ import WhishlistPage from './pages/WhishlistPage';
 import StatusPage from './pages/StatusPage';
 import CarPage from './pages/CarPage';
 import ErrorPage from './pages/ErrorPage';
+import ProjectDetails from './components/Projects/ProjectDetails';
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path="/whishlist" component={WhishlistPage} exact />
             <Route path="/status" component={StatusPage} exact />
             <Route path="/Car/:id" component={CarPage} />
+            <Route path="/Project/:id" component={ProjectDetails} />
             <Route path="/error" component={ErrorPage} exact />
             <Redirect to='/404' />
           </Switch>
