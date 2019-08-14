@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import PubSub from 'pubsub-js';
 
+/* store */
+import { connect } from 'react-redux';
+
 import './Autocomplete.scss'
 
 export class Autocomplete extends Component {
@@ -82,6 +85,8 @@ export class Autocomplete extends Component {
     render() {
 
         const carLength = this.state.filteredOptions.length;
+        const stockStore = this.props.stock;
+
         return (
             <div className={this.state.isExpanded ? "search -expanded" : "search"}>
                 <div className="search__wrapper">
@@ -102,8 +107,9 @@ export class Autocomplete extends Component {
                     />
 
                     <div className="search__carResults">
-                        Résultats:<span className="bold"> ({carLength})</span> voiture(s)
-                </div>
+                        Résultats:<span className="bold"> ({carLength})</span> voiture(s) 
+                        <span className="bold">({stockStore})</span> à Vendre
+                    </div>
 
                     <ul className={this.state.isTyping ? "search__list -expanded" : "search__list"}>
                         {this.state.filteredOptions.map((car) => (
@@ -113,7 +119,7 @@ export class Autocomplete extends Component {
                                         src={car.views[0].image1}
                                         alt={`${this.state.brand} ${this.state.model} ${this.state.version}`} />
                                     <div>
-                                        <span class="bold">{car.brand} {car.model} {car.version}</span> - <span class="skew">{car.brandshop}</span>
+                                        <span className="bold">{car.brand} {car.model} {car.version}</span> - <span className="skew">{car.brandshop}</span>
                                     </div>
                                 </NavLink>
                             </li>
@@ -125,4 +131,10 @@ export class Autocomplete extends Component {
     }
 }
 
-export default Autocomplete;
+const mapStateToProps = (state) => {
+    return {
+        stock: state.stock
+    }
+}
+
+export default connect(mapStateToProps)(Autocomplete);
