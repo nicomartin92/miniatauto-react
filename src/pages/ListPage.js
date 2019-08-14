@@ -9,6 +9,7 @@ import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 /* store */
 import { connect } from 'react-redux';
+import { deleteStock } from '../actions/postActions';
 
 /* Datas */
 import carsData from '../db';
@@ -246,7 +247,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) },
+    deleteStock: (value) => { dispatch(deleteStock(value)) },
     updateGlobalStock: (value) => { dispatch({ type: 'UPDATE__GLOBAL__STOCK', stock: value }) },
     updateCurrentCar: (id) => { dispatch({ type: 'UPDATE__CURRENT__CAR', stock: id }) }
   }
