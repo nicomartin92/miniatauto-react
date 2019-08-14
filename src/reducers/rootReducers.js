@@ -759,7 +759,15 @@ const rootReducers = (state = initialState, action) => {
     if (action.type === 'UPDATE__STOCK') {
         let newStock = action.stock
 
-        console.warn(newStock)
+        return {
+            ...state,
+            stock: newStock
+        }
+    }
+
+    if (action.type === 'UPDATE__GLOBAL__STOCK') {
+        let newStock = action.stock
+
         return {
             ...state,
             stock: newStock

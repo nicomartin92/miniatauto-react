@@ -126,6 +126,16 @@ class ListPage extends Component {
     });
   }
 
+  /* will mount */
+  componentWillMount() {
+    const currentStock = this.props.cars.filter(car => car.available === true);
+    const currentStockResult = currentStock.reduce((sum, item) => {
+      return sum += item.stock
+    }, 0);
+
+    this.props.updateGlobalStock(currentStockResult);
+  }
+
   /* did mount */
   componentDidMount() {
     setTimeout(() => {
@@ -148,8 +158,6 @@ class ListPage extends Component {
   }
 
   render() {
-
-    console.warn('see', this.props.stock);
     const carToSell = this.props.stock;
 
     // Please keep it
@@ -239,7 +247,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteStock: (value) => { dispatch({ type: 'UPDATE__STOCK', stock: value }) },
-    updateCurrentCar: (id) => { dispatch({ type: 'UPDATE__CURRENT__CAR', stock: id })}
+    updateGlobalStock: (value) => { dispatch({ type: 'UPDATE__GLOBAL__STOCK', stock: value }) },
+    updateCurrentCar: (id) => { dispatch({ type: 'UPDATE__CURRENT__CAR', stock: id }) }
   }
 }
 
