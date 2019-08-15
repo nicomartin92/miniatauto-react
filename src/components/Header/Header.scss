@@ -13,11 +13,12 @@
     width: 100%;
 
     li {
-        margin: 0 20px;
+        margin: 0 10px;
     }
 
     a {
         color: $colorBlack;
+        margin: 0 5px;
 
         &.-active {
             color: $colorBlue;

@@ -39,14 +39,10 @@ class Headers extends Component {
                     <li onClick={this.triggerSearch}>
                         <button>search</button>
                     </li>
-                    <li>
-                        <SignInLinks />
-                    </li>
-                    <li>
-                        <SignOutLinks />
-                    </li>
+                    <SignInLinks />
+                    <SignOutLinks />
                 </nav>
-                
+
             </header>
         )
     }
