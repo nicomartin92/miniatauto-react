@@ -8,8 +8,8 @@ class SignOutLinks extends Component {
         return (
             <ul className="right">
                 <li>
-                    <NavLink to='/' >Sign up</NavLink>
-                    <NavLink to='/' >Log in</NavLink>
+                    <NavLink to='/signup' >Sign up</NavLink>
+                    <NavLink to='/signin' >Log in</NavLink>
                 </li>
             </ul>
         )

@@ -8,7 +8,7 @@ class SignInLinks extends Component {
         return (
             <ul className="right">
                 <li>
-                    <NavLink to='/' >New Project</NavLink>
+                    <NavLink to='/create' >New Project</NavLink>
                     <NavLink to='/' >Log out</NavLink>
                     <NavLink to='/' className="btn btn-floating pink lighten-1">NM</NavLink>
                 </li>
