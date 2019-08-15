@@ -6,6 +6,11 @@ import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Dashboard from '../components/Dashboard/Dashboard';
+import Notifications from '../components/Dashboard/Notifications';
+import ProjectList from '../components/Projects/ProjectList';
+
+/* Store */
+import { connect } from 'react-redux';
 
 /* const CarPage = () => {
     return (
@@ -56,7 +61,7 @@ class StatusPage extends Component {
 
     render() {
         const carDashboard = this.state.carsDataJsonFromState.map(car => <Dashboard item={car} key={car.id} />);
-
+        
         return (
             <div>
                 <PanelNav />
@@ -65,6 +70,15 @@ class StatusPage extends Component {
 
                 <div className="main">
                     <h1>Dashboard</h1>
+
+                    <div className="dashboard">
+                        <div>
+                            <ProjectList projects={this.props.projects} />
+                        </div>
+                        <div>
+                            <Notifications />
+                        </div>
+                    </div>
 
                     <div className="gridTable">
                         <div className="gridTable__row">
@@ -83,4 +97,10 @@ class StatusPage extends Component {
     }
 }
 
-export default StatusPage;
+const mapStateToProps = (state) => {
+    return {
+        projects: state.projectR.projects
+    }
+}
+
+export default connect(mapStateToProps)(StatusPage);

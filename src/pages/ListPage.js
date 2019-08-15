@@ -129,6 +129,7 @@ class ListPage extends Component {
 
   /* will mount */
   componentWillMount() {
+    console.warn('props ', this.props)
     const currentStock = this.props.cars.filter(car => car.available === true);
     const currentStockResult = currentStock.reduce((sum, item) => {
       return sum += item.stock
@@ -240,8 +241,8 @@ class ListPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cars: state.cars,
-    stock: state.stock
+    cars: state.carR.cars,
+    stock: state.carR.stock
   }
 }
 

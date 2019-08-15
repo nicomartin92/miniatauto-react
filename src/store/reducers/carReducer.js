@@ -755,7 +755,7 @@ const initialState = {
     ]
 }
 
-const rootReducers = (state = initialState, action) => {
+const carReducers = (state = initialState, action) => {
     if (action.type === 'UPDATE__STOCK') {
         let newStock = action.stock
 
@@ -777,4 +777,4 @@ const rootReducers = (state = initialState, action) => {
     return state;
 }
 
-export default rootReducers;
+export default carReducers;
