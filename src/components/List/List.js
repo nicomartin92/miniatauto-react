@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 
+/* SVG */
+import { ReactComponent as BuyIcon } from '../../assets/buy-icon.svg';
+
 import './List.scss'
 
 /* const Card = (props) => {
@@ -46,7 +49,10 @@ class List extends Component {
                     <div>{this.props.item.brandshop} - {this.props.item.brand} {this.props.item.model} {this.props.item.version}</div>
                     <div style={{ display: !this.props.item.year && "none" }}>{this.props.item.year}</div>
                     <div>Stock:  {this.props.item.stock}</div>
-                    <button className="button" onClick={() => this.props.countStock(this.props.item.id)}>Acheter</button> 
+                    <button className="button" onClick={() => this.props.countStock(this.props.item.id)}>
+                        Acheter
+                        <BuyIcon className="list__icon" />
+                    </button> 
                     <NavLink className="button" to={`/Car/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
                 </div> 
             </li>
