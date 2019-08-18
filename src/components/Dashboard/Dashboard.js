@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/* Store */
+import { connect } from 'react-redux';
+
 import './Dashboard.scss';
 
 class Dashboard extends Component {
@@ -34,6 +37,10 @@ class Dashboard extends Component {
         }
     }
 
+    deleteCar = (id) => {
+        this.props.deleteCar(id);
+    }
+
     render() {
         return (
             <div className="gridTable__row">
@@ -52,9 +59,19 @@ class Dashboard extends Component {
                 <div className="gridTable__cell">
                     {this.sold()}
                 </div>
+
+                <div className="gridTable__cell">
+                    <button onClick={() => this.deleteCar(this.props.item.id)}>Supprimer X</button>
+                </div>
             </div>
         )
     }
 }
 
-export default Dashboard;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteCar: (id) => { dispatch({type: 'DELETE__CAR', id: id}) }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Dashboard);

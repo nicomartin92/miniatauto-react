@@ -774,6 +774,17 @@ const carReducers = (state = initialState, action) => {
         }
     }
 
+    if (action.type === 'DELETE__CAR') {
+        let newList = state.cars.filter((car) => {
+            return car.id !== action.id 
+        });
+        
+        return {
+            ...state,
+            cars: newList
+        }
+    }
+
     return state;
 }
 
