@@ -64,7 +64,8 @@ class StatusPage extends Component {
     }
 
     render() {
-        const carDashboard = this.state.carsDataJsonFromState.map(car => <Dashboard item={car} key={car.id} />);
+        // const carDashboard = this.state.carsDataJsonFromState.map(car => <Dashboard item={car} key={car.id} />);
+        const carDashboard = this.props.cars.map(car => <Dashboard item={car} key={car.id} />);
         
         return (
             <div>
@@ -90,6 +91,7 @@ class StatusPage extends Component {
                             <div className="gridTable__cell">Garder</div>
                             <div className="gridTable__cell">A vendre</div>
                             <div className="gridTable__cell">Vendus</div>
+                            <div className="gridTable__cell">Supprimer</div>
                         </div>
                         {carDashboard}
                     </div>
@@ -104,7 +106,8 @@ class StatusPage extends Component {
 const mapStateToProps = (state) => {
     return {
         // projects: state.projectR.projects
-        projects: state.firestore.ordered.projects
+        projects: state.firestore.ordered.projects,
+        cars: state.carR.cars,
     }
 }
 
