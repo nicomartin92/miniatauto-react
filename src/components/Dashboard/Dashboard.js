@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/* SVG */
+import { ReactComponent as DeleteIcon } from '../../assets/delete-icon.svg';
+
 /* Store */
 import { connect } from 'react-redux';
 
@@ -61,7 +64,9 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="gridTable__cell">
-                    <button onClick={() => this.deleteCar(this.props.item.id)}>Supprimer X</button>
+                    <button onClick={() => this.deleteCar(this.props.item.id)}>
+                        <DeleteIcon className="dashboard__icon" />
+                    </button>
                 </div>
             </div>
         )

@@ -4,6 +4,9 @@ import PubSub from 'pubsub-js';
 import SignInLinks from './SignInLinks';
 import SignOutLinks from './SignOutLinks';
 
+/* SVG */
+import { ReactComponent as SearchIcon } from '../../assets/search-icon.svg';
+
 import './Header.scss';
 
 class Headers extends Component {
@@ -37,7 +40,9 @@ class Headers extends Component {
                         <NavLink to="/status" activeClassName="-active">Status</NavLink>
                     </li>
                     <li onClick={this.triggerSearch}>
-                        <button>search</button>
+                        <button>
+                            <SearchIcon />
+                        </button>
                     </li>
                     <SignInLinks />
                     <SignOutLinks />

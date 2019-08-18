@@ -6,9 +6,17 @@
     &__row {
         display: grid;
         grid-template-columns: repeat(3, 2fr) repeat(2, 1fr);
+        align-items: center;
 
         &:not(:last-child) {
             border-bottom: 1px solid #ddd;
         }
+    }
+}
+
+.dashboard {
+    &__icon {
+        width: 40px;
+        height: 40px;
     }
 }
