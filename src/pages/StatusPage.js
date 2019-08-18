@@ -12,6 +12,10 @@ import ProjectList from '../components/Projects/ProjectList';
 /* Store */
 import { connect } from 'react-redux';
 
+/* firestore */
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+
 /* const CarPage = () => {
     return (
         <div>
@@ -99,8 +103,14 @@ class StatusPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        projects: state.projectR.projects
+        // projects: state.projectR.projects
+        projects: state.firestore.ordered.projects
     }
 }
 
-export default connect(mapStateToProps)(StatusPage);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'projects' }
+    ])
+)(StatusPage);
