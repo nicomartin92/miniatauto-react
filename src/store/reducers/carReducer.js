@@ -1,4 +1,11 @@
 const initialState = {
+    toast: {
+        "succes": "Véhicule ajouté",
+        "text": "",
+        "image": "",
+        "url": "",
+        "error": "Error"
+    }, 
     stock: 14,
     cars: [
         {
