@@ -21,7 +21,8 @@ import './List.scss'
 class List extends Component {
     render() {
         const unavailableStyles = {
-            opacity: "0.5"
+            opacity: "0.5",
+            pointerEvents: "none"
         }
 
         const availableStyles = {

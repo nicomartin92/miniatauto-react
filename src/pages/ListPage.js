@@ -49,6 +49,8 @@ class ListPage extends Component {
     this.year = this.year.bind(this);
     this.countryBrand = this.countryBrand.bind(this);
     this.clearAll = this.clearAll.bind(this);
+
+    this.sendToastEvent = React.createRef();
   }
 
   countStock(id) {
@@ -56,10 +58,17 @@ class ListPage extends Component {
       const updatedStock = prevState.carsDataJsonFromState.map(item => {
         if (item.id === id) {
           item.stock = (item.stock - 1)
+
+          // send notification
+          this.props.toast.text = `${item.brand} ${item.model} ${item.version}`;
+          this.props.toast.image = item.image;
+          this.props.toast.url = item.reference;
+          this.sendToastEvent.current.toastDisplay(true);
+
           if (item.stock <= 0 || item.stock === isNaN) {
             item.stock = 0
             item.available = !item.available
-          }
+          } 
         }
         return item
       })
@@ -190,7 +199,7 @@ class ListPage extends Component {
         <PanelNav />
         <Header />
         <Autocomplete />
-        <Toaster />
+        <Toaster item={this.props.toast} ref={this.sendToastEvent} />
 
         <div className="main">
           <h1>List page</h1>
@@ -243,7 +252,8 @@ class ListPage extends Component {
 const mapStateToProps = (state) => {
   return {
     cars: state.carR.cars,
-    stock: state.carR.stock
+    stock: state.carR.stock,
+    toast: state.carR.toast
   }
 }
 
