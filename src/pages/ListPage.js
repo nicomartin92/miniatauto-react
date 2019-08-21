@@ -6,6 +6,7 @@ import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
+import Toaster from '../components/Toaster/Toaster';
 
 /* store */
 import { connect } from 'react-redux';
@@ -189,6 +190,7 @@ class ListPage extends Component {
         <PanelNav />
         <Header />
         <Autocomplete />
+        <Toaster />
 
         <div className="main">
           <h1>List page</h1>
