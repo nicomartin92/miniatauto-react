@@ -10321,6 +10321,7 @@ source-list-map@^2.0.0:
 source-map-explorer@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-map-explorer/-/source-map-explorer-2.0.1.tgz#988721e8320d7b6925bc40289e5de658fe4cad4d"
+  integrity sha512-mv2sv2b6oN2L9n18O/eLrYiP5zfWEHESLq4utWBqNw8GnkbuRuXs8twVCOhMT5hxRzfQgS7Yxh7HlQaW8oeiAQ==
   dependencies:
     btoa "^1.2.1"
     chalk "^2.4.2"
