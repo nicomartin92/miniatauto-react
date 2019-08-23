@@ -13,6 +13,7 @@ import Footer from '../components/Footer/Footer';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Toaster from '../components/Toaster/Toaster';
 import List from '../components/List/List';
+import Grid from '../components/Grid/Grid';
 
 // storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -46,7 +47,7 @@ storiesOf('Toaster', module)
   .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
   .add('default', () => <Toaster item={{ ...toasterProps }} {...actions} />);
 
-/* List */
+/* List enable card */
 export const listProps = {
   available: 'true',
   image: './cars/renault/renault-clio-4-rs.jpg',
@@ -63,3 +64,72 @@ export const listProps = {
 storiesOf('List card', module)
   .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
   .add('default', () => <List item={{ ...listProps }} />);
+
+/* List desabled card */
+export const listPropsDisable = {
+  image: './cars/renault/renault-megane-rs-trophy-n.jpg',
+  model: 'Megane 4',
+  title: 'title',
+  brand: 'renault',
+  version: 'rs Trophy',
+  year: '2018',
+  stock: 0,
+  id: 1,
+  reference: 'G020'
+}
+
+storiesOf('List card', module)
+  .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
+  .add('disabled', () => <List item={{ ...listPropsDisable }} />);
+
+/* Grid enable */
+export const gridProps = {
+  available: 'true',
+  image: './cars/renault/renault-clio-4-rs.jpg',
+  views: [
+    {
+      image1: './cars/renault/renault-clio-4-rs-profil.jpg'
+    }
+  ],
+  model: 'Clio 4',
+  title: 'title',
+  brand: 'renault',
+  brandShop: 'ottomobile',
+  version: 'rs',
+  year: '2017',
+  stock: 1,
+  id: 1,
+  reference: 'G020',
+  description: 'Lorem ipsum',
+  preference: 1
+}
+
+storiesOf('Grid card', module)
+  .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
+  .add('default', () => <Grid item={{ ...gridProps }} />);
+
+/* Grid disabled */
+export const gridPropsDisabled = {
+  image: './cars/renault/renault-clio-4-rs.jpg',
+  views: [
+    {
+      image1: './cars/renault/renault-clio-4-rs-profil.jpg'
+    }
+  ],
+  model: 'Clio 4',
+  title: 'title',
+  brand: 'renault',
+  brandShop: 'ottomobile',
+  version: 'rs',
+  year: '2017',
+  stock: 0,
+  id: 1,
+  reference: 'G020',
+  description: 'Lorem ipsum',
+  preference: 1
+}
+
+storiesOf('Grid card', module)
+  .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
+  .add('disabled', () => <Grid item={{ ...gridPropsDisabled }} />);
+
