@@ -8,9 +8,13 @@
     top: 0;
     right: 0;
     z-index: 1000;
-    opacity: 0;
-    transform: translateX(350px);
     transition: all .3s ease-in;
+    background: $colorBlack;
+
+    .App & {
+      opacity: 0;
+      transform: translateX(350px);
+    }
 
     a {
       color: $colorWhite;
