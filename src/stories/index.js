@@ -1,13 +1,17 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
+import { MemoryRouter } from 'react-router';
 
 // import { Button, Welcome } from '@storybook/react/demo';
 import App from '../App';
-import PanelNav from '../components/PanelNav/PanelNav';
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+
+import PanelNav from '../components/PanelNav/PanelNav';
+import Autocomplete from '../components/Autocomplete/Autocomplete';
 
 // storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -17,6 +21,11 @@ import Footer from '../components/Footer/Footer';
 
 storiesOf('App', module).add('default', () => <App />);
 
+storiesOf('Header', module)
+  .addDecorator(story => (<MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>))
+  .add('Header', () => <Header />)
+  .add('PanelNav', () => <PanelNav />);
+
 storiesOf('Footer', module).add('default', () => <Footer />);
 
-storiesOf('PanelNav', module).add('default', () => <PanelNav />);
+storiesOf('Autocomplete', module).add('default', () => <Autocomplete />);
