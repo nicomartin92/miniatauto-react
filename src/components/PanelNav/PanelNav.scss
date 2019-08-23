@@ -4,7 +4,7 @@
     z-index: 4;
     position: fixed;
     top: 0;
-    left: -120vw;
+    left: 0;
     height: 100%;
     background-color: $colorWhite;
     color: $colorBlack;
@@ -14,6 +14,10 @@
     transition: right 1s cubic-bezier(.19,1,.22,1),left 1s cubic-bezier(.19,1,.22,1);
     padding: 60px 25px;
     box-shadow: 0 10px 36px 0 rgba(186, 194, 195, 0.47);
+
+    .App & {
+      left: -120vw;
+    }
 
     @include large {
       height: 100vh;

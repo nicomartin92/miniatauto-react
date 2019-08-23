@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import PubSub from 'pubsub-js';
 import SignInLinks from './SignInLinks';
 import SignOutLinks from './SignOutLinks';
@@ -22,32 +22,35 @@ class Headers extends Component {
     render() {
         return (
             <header>
-                <nav className="nav"
+                <nav 
                     style={{ color: '#000000' }}>
-                    <li>
-                        <button onClick={this.handleClick}>Cars</button>
-                    </li>
-                    <li>
-                        <NavLink exact={true} to="/" activeClassName="-active">Accueil</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/list" activeClassName="-active">Catégorie</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/whishlist" activeClassName="-active">Whishlist</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/status" activeClassName="-active">Status</NavLink>
-                    </li>
-                    <li onClick={this.triggerSearch}>
-                        <button>
-                            <SearchIcon />
-                        </button>
-                    </li>
-                    <SignInLinks />
-                    <SignOutLinks />
+                    <Route>
+                        <ul className="nav">
+                            <li>
+                                <button onClick={this.handleClick}>Cars</button>
+                            </li>
+                            <li>
+                                <NavLink exact={true} to="/" activeClassName="-active">Accueil</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/list" activeClassName="-active">Catégorie</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/whishlist" activeClassName="-active">Whishlist</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/status" activeClassName="-active">Status</NavLink>
+                            </li>
+                            <li onClick={this.triggerSearch}>
+                                <button>
+                                    <SearchIcon />
+                                </button>
+                            </li>
+                            <SignInLinks />
+                            <SignOutLinks />
+                        </ul>
+                    </Route>
                 </nav>
-
             </header>
         )
     }
