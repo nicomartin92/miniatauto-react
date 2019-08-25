@@ -4,17 +4,22 @@ import React, { Component } from 'react';
 import CarInfo from '../CarInfo/CarInfo';
 
 class AddForm extends Component {
-    state = {
-        brand: null,
-        model: null,
-        version: null,
-        searchString: '',
-        carList: [
-            { id: 1, brand: 'Peugeot', model: '205', version: 'GTI Gutmann' },
-            { id: 2, brand: 'Renault', model: 'Megane 4', version: 'GTI GutmannRS' },
-            { id: 3, brand: 'Bmw', model: 'E92', version: 'M3' }
-        ]
-    }
+    constructor() {
+        super();
+
+        this.state = {
+            brand: null,
+            model: null,
+            version: null,
+            searchString: '',
+            carList: [
+                { brand: 'Peugeot', model: '205', version: 'GTI Gutmann' },
+                { brand: 'Renault', model: 'Megane 4', version: 'GTI GutmannRS' },
+                { brand: 'Bmw', model: 'E92', version: 'M3' }
+            ]
+        }
+    }    
+    
 
     changeValue = (e) => {
         this.setState({
@@ -23,7 +28,16 @@ class AddForm extends Component {
     }
 
     submitForm = (e) => {
+        console.warn(this.state)
         e.preventDefault();
+
+        this.setState({
+            carList: this.state.carList.concat({
+                brand: this.refs.brand.value, 
+                model: this.refs.model.value,
+                version: this.refs.version.value
+            })
+        });
     }
 
     onChange = (e) => {
@@ -69,13 +83,13 @@ class AddForm extends Component {
                 </div>
                 <form onSubmit={this.submitForm}>
                     <label htmlFor="brand">Brand:</label>
-                    <input type="text" id="brand" onChange={this.changeValue} />
+                    <input type="text" id="brand" ref="brand" onChange={this.changeValue} />
 
                     <label htmlFor="model">Model:</label>
-                    <input type="text" id="model" onChange={this.changeValue} />
+                    <input type="text" id="model" ref="model" onChange={this.changeValue} />
 
                     <label htmlFor="version">Version:</label>
-                    <input type="text" id="version" onChange={this.changeValue} />
+                    <input type="text" id="version" ref="version" onChange={this.changeValue} />
                     <button className="button">Submit</button>
                 </form>
             </div>
