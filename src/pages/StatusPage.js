@@ -8,6 +8,7 @@ import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Notifications from '../components/Dashboard/Notifications';
 import ProjectList from '../components/Projects/ProjectList';
+import AddForm from '../components/AddForm/AddForm';
 
 /* Store */
 import { connect } from 'react-redux';
@@ -75,6 +76,8 @@ class StatusPage extends Component {
 
                 <div className="main">
                     <h1>Dashboard</h1>
+
+                    <AddForm />
 
                     <div className="dashboard">
                         <div>
