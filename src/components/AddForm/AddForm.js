@@ -38,6 +38,10 @@ class AddForm extends Component {
                 version: this.refs.version.value
             })
         });
+
+        this.refs.brand.value = '';
+        this.refs.model.value = ''
+        this.refs.version.value = ''
     }
 
     onChange = (e) => {
