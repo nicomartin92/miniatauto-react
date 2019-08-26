@@ -15,7 +15,6 @@ const projectReducer = (state = initState, action) => {
             console.warn('error project', action.err);
             return state;
         default:
-            console.warn('default')
             return state;
     }
 }

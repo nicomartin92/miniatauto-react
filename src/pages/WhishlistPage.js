@@ -6,6 +6,7 @@ import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Grid from '../components/Grid/Grid';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
+import Slider from '../components/Slider/Slider';
 
 class WhishlistPage extends Component {
   constructor() {
@@ -58,6 +59,8 @@ class WhishlistPage extends Component {
 
         <div className="main">
           <h1>Whishlist page</h1>
+
+          <Slider item={_cars} />
 
           <ul className="grid">
             {whislistGrid}

@@ -107,3 +107,12 @@ svg {
     width: 15px;
     height: 15px;
 }
+
+.arrow {
+    width: 30px;
+    height: 30px;
+
+    &.left {
+        transform: rotate(180deg);
+    }
+}
