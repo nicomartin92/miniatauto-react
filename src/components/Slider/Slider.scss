@@ -9,9 +9,13 @@
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    height: 800px;
+    height: 300px;
     overflow: hidden;
     white-space: nowrap;
+
+    @include medium {
+        height: 800px;
+    }
 
     &__wrapper {
         position: relative;
