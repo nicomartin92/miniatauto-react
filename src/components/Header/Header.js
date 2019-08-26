@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import PubSub from 'pubsub-js';
-import SignInLinks from './SignInLinks';
-import SignOutLinks from './SignOutLinks';
+// import SignInLinks from './SignInLinks';
+// import SignOutLinks from './SignOutLinks';
 
 /* SVG */
 import { ReactComponent as SearchIcon } from '../../assets/search-icon.svg';
@@ -46,8 +46,8 @@ class Headers extends Component {
                                     <SearchIcon />
                                 </button>
                             </li>
-                            <SignInLinks />
-                            <SignOutLinks />
+                            {/* <SignInLinks />
+                            <SignOutLinks /> */}
                         </ul>
                     </Route>
                 </nav>
