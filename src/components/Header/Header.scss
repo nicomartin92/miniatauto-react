@@ -13,17 +13,27 @@
     width: 100%;
 
     li {
-        margin: 0 10px;
+        margin: 0 3px;
+
+        
+        @include medium {
+            padding: 0 10px;
+        }
     }
 
     a {
         color: $colorBlack;
         margin: 0 5px;
+        padding: 0;
 
         &.-active {
             color: $colorBlue;
 
             @include skew(14px, $colorBlue);
+        }
+
+        @include medium {
+            padding: 0 10px;
         }
     }
 }
