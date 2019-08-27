@@ -7,9 +7,9 @@
 .slider {
     position: relative;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
-    height: 300px;
+    height: 240px;
     overflow: hidden;
     white-space: nowrap;
 
@@ -28,6 +28,11 @@
     display: inline-block;
     height: 100%;
     width: 100%;
+    padding: 20px;
+
+    @include medium {
+        padding: 20px 50px;
+    }
 
     img {
         width: 100%;
@@ -46,20 +51,18 @@
     transition: transform ease-in .1s;
 }
   
-.nextArrow {
+.nextArrow,
+.backArrow  {
     position: absolute;
     top: 50%;
+    margin-top: -13px;
     right: 25px;
-    z-index: 999;
     color: #fff;
 }
-  
+
 .backArrow {
-    position: absolute;
-    top: 50%;
     left: 25px;
-    z-index: 999;
-    color: #fff;
+    right: auto;
 }
 
 .fa-arrow-right:before, .fa-arrow-left:before {

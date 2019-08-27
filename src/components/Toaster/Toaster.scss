@@ -7,7 +7,7 @@
     overflow-y: scroll;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: map-get($z-index, toaster);
     transition: all .3s ease-in;
     background: $colorBlack;
 

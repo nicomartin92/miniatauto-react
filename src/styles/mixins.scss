@@ -50,7 +50,7 @@
     right: 0px;
     height: 100%;
     width: 0px;
-    z-index: -1;
+    z-index: map-get($z-index, negatifIndex);
     content: '';
     color: $color1;
     background: $color1;
