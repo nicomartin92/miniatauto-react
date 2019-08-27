@@ -56,11 +56,9 @@ class slider extends Component {
     }
 
     goToSlide = (currentIndex) => {
-        console.warn('click', this.state.translateValue + - ((this.slideWidth() * currentIndex) ))
-
         this.setState(prevState => ({
             currentIndex: currentIndex,
-            translateValue: 0 + - ((this.slideWidth() * currentIndex) )
+            translateValue: 0 + - ((this.slideWidth() * currentIndex))
         }));
     }
 
@@ -98,8 +96,11 @@ class slider extends Component {
 
                 <LeftArrow goToPrevSlide={this.goToPrevSlide} />
                 <RightArrow goToNextSlide={this.goToNextSlide} />
-                
-                <Pagination item={this.props.item} action={this.goToSlide} />
+
+                <Pagination
+                    item={this.props.item}
+                    action={this.goToSlide}
+                    active={this.state.currentIndex} />
             </div>
         )
     }

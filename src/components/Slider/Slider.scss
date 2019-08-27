@@ -69,11 +69,33 @@
     width: 100%;
     bottom: 100px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
 
     &__item {
-        color: $colorBlack;
         margin: 0 5px;
-        padding: 5px;
+        padding: 0;
+
+        &.-active {
+            button {
+            background: $colorBlue;
+            }
+        }
+
+        button {
+            background: none;
+            border: 2px solid $colorBlue;
+            transform: skewX(-18deg);
+            transition: all .3 ease-in;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            text-indent: -9000px;
+
+            &:hover {
+                background: $colorBlue;
+                transition: all .3 ease-in;
+            }
+        }
     }
 }
