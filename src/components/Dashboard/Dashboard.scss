@@ -12,11 +12,24 @@
             border-bottom: 1px solid #ddd;
         }
     }
+
+    img {
+        width: 90px;
+
+        @include medium {
+            width: 120px;
+        }
+    }
 }
 
 .dashboard {
     &__icon {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
+
+        @include medium {
+            width: 40px;
+            height: 40px;
+        }
     }
 }

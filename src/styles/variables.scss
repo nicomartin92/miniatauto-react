@@ -19,7 +19,7 @@ $width1600: 1600px;
 
 .sticky {
     position: sticky;
-    z-index: 2;
+    z-index: map-get($z-index, stickyHeader);
 }
 
 .squareColor {

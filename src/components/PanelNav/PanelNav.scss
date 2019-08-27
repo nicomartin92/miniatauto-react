@@ -1,7 +1,6 @@
 @import '../../styles/index.scss';
 
 .panelNav {
-    z-index: 4;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +8,7 @@
     background-color: $colorWhite;
     color: $colorBlack;
     width: 100vw;
-    z-index: 6;
+    z-index: map-get($z-index, panelNav);
     padding: 18vh 8.5vmax 0 9vmax;
     transition: right 1s cubic-bezier(.19,1,.22,1),left 1s cubic-bezier(.19,1,.22,1);
     padding: 60px 25px;
