@@ -45,7 +45,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f9f9f9;
     border-radius: 50%;
     cursor: pointer;
     transition: transform ease-in .1s;
@@ -57,7 +56,7 @@
     top: 50%;
     margin-top: -13px;
     right: 25px;
-    color: #fff;
+    color: $colorWhite;
 }
 
 .backArrow {
@@ -65,6 +64,38 @@
     right: auto;
 }
 
-.fa-arrow-right:before, .fa-arrow-left:before {
-    color: #222
+.pagination {
+    position: absolute;
+    width: 100%;
+    bottom: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    &__item {
+        margin: 0 5px;
+        padding: 0;
+
+        &.-active {
+            button {
+            background: $colorBlue;
+            }
+        }
+
+        button {
+            background: none;
+            border: 2px solid $colorBlue;
+            transform: skewX(-18deg);
+            transition: all .3 ease-in;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            text-indent: -9000px;
+
+            &:hover {
+                background: $colorBlue;
+                transition: all .3 ease-in;
+            }
+        }
+    }
 }

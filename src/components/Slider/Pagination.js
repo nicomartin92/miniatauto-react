@@ -1,10 +1,18 @@
 import React from 'react';
 
-const Pagination = (props) => {
+const Pagination = ({ item, action, active }) => {
+
   return (
-    <div className="pagination" onClick={props.goToNextSlide}>
-      pagination
-    </div>
+    <ul className="pagination">
+
+      {
+        item.map((item, i) => {
+          return <li className={ i === active ? "pagination__item -active": "pagination__item"} onClick={() => action(i)}>
+                    <button>{i}</button>
+                 </li>
+        })
+      }
+    </ul>
   );
 }
 
