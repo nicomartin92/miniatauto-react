@@ -39,7 +39,7 @@ class List extends Component {
                     </div>
                     <h2>Loading card ...</h2>
                 </li>
-            ) 
+            )
         }
 
         return (
@@ -53,11 +53,14 @@ class List extends Component {
                     <button className="button" onClick={() => this.props.countStock(this.props.item.id)}>
                         Acheter
                         <BuyIcon className="list__icon" />
-                    </button> 
-                    <NavLink className="button" to={`/Car/${this.props.item.reference}`} >Voir modèle {this.props.item.model}</NavLink>
-                </div> 
+                    </button>
+                    <NavLink className="button" to={{
+                        pathname: `/Car/${this.props.item.reference}`,
+                        search: this.props.item.brand
+                    }} >Voir modèle {this.props.item.model}</NavLink>
+                </div>
             </li>
-       )
+        )
     }
 }
 

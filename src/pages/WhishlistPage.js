@@ -60,7 +60,7 @@ class WhishlistPage extends Component {
         <div className="main">
           <h1>Whishlist page</h1>
 
-          <Slider item={_cars} />
+          <Slider item={_cars} view={2} />
 
           <ul className="grid">
             {whislistGrid}
