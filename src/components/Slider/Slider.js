@@ -25,7 +25,8 @@ class slider extends Component {
                 "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
             ],
             currentIndex: 0,
-            translateValue: 0
+            translateValue: 0,
+            testValue: 0
         }
     }
 
@@ -33,37 +34,59 @@ class slider extends Component {
         if (this.state.currentIndex === 0)
             return;
 
+        let s = document.querySelector('.slide').clientWidth;
+        let index = this.state.currentIndex;
+
         this.setState(prevState => ({
-            currentIndex: prevState.currentIndex - 1,
-            translateValue: prevState.translateValue + this.slideWidth()
-        }))
+            currentIndex: this.state.currentIndex - 1,
+            testValue: -(s*(index -1))
+        }));
     }
 
     goToNextSlide = () => {
-        console.warn(this.state.currentIndex, this.props.item.length - 1)
         if (this.state.currentIndex === this.props.item.length - 1) {
             return this.setState({
                 currentIndex: 0,
-                translateValue: 0
+                testValue: 0
             })
         }
 
         // This will not run if we met the if condition above
+        let index = this.state.currentIndex + 1;
+        let s = document.querySelector('.slide').clientWidth;
+
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex + 1,
-            translateValue: prevState.translateValue + -(this.slideWidth())
+            translateValue: -(s*index),
+            testValue: -(s*index)
         }));
     }
 
     goToSlide = (currentIndex) => {
+        let s = document.querySelector('.slide').clientWidth
+
         this.setState(prevState => ({
             currentIndex: currentIndex,
-            translateValue: 0 + - ((this.slideWidth() * currentIndex))
+            testValue: 0 + - ((s * currentIndex))
         }));
     }
 
     slideWidth = () => {
-        return document.querySelector('.slide').clientWidth
+        let width = document.querySelector('.slide').clientWidth;
+        return width
+    }
+
+    test1 = () => {
+        let s = document.querySelector('.slide').clientWidth;
+        let index = this.state.currentIndex
+        this.setState(prevState => ({
+            testValue: -(s*index)
+        }));
+        return -(s*index);
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.test1);
     }
 
     render() {
@@ -80,9 +103,10 @@ class slider extends Component {
             <div className="slider">
                 <div className="slider__wrapper"
                     style={{
-                        transform: `translateX(${this.state.translateValue}px)`,
+                        transform: `translateX(${this.state.testValue}px)`,
                         transition: 'transform ease-out 0.45s'
                     }}>
+                    
                     <Swipeable {...config} className="swipe">
 
                         {
