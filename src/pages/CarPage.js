@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
+import Slider from '../components/Slider/Slider';
 
 /* const CarPage = () => {
     return (
@@ -56,6 +57,9 @@ class CarPage extends Component {
     render() {
         const showCorrectCar = this.state.carsDataJsonFromState.filter(car => car.reference === this.props.match.params.id);
         // const mapCoorectCar = showCorrectCar.map(item => item);
+
+        const showCorrectCarBrand = showCorrectCar.map(car => car.brand);
+        const otherCategories = this.state.carsDataJsonFromState.filter(car => car.brand === showCorrectCarBrand[0]);
 
         return (
             <div>
@@ -142,8 +146,12 @@ class CarPage extends Component {
                             <div className="imageContent__item -medium">
                                 <img src={car.views[0].image3} loading="lazy" alt={car.model} />
                             </div>
+                            <h2>Découvrez nos autres {car.brand}:</h2> 
                         </div>
                     ))}
+
+                    
+                    <Slider item={otherCategories} view={1} />
                 </div>
 
                 <Footer />

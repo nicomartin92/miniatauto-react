@@ -26,7 +26,8 @@ class slider extends Component {
             ],
             currentIndex: 0,
             translateValue: 0,
-            testValue: 0
+            testValue: 0,
+            mobile: false
         }
     }
 
@@ -34,7 +35,7 @@ class slider extends Component {
         if (this.state.currentIndex === 0)
             return;
 
-        let s = document.querySelector('.slide').clientWidth;
+        let s = this.state.mobile ? document.querySelector('.swipe').clientWidth : document.querySelector('.swipe').clientWidth / this.props.view;
         let index = this.state.currentIndex;
 
         this.setState(prevState => ({
@@ -53,7 +54,7 @@ class slider extends Component {
 
         // This will not run if we met the if condition above
         let index = this.state.currentIndex + 1;
-        let s = document.querySelector('.slide').clientWidth;
+        let s = this.state.mobile ? document.querySelector('.swipe').clientWidth : document.querySelector('.swipe').clientWidth / this.props.view;
 
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex + 1,
@@ -63,7 +64,7 @@ class slider extends Component {
     }
 
     goToSlide = (currentIndex) => {
-        let s = document.querySelector('.slide').clientWidth
+        let s = this.state.mobile ? document.querySelector('.swipe').clientWidth : document.querySelector('.swipe').clientWidth / this.props.view
 
         this.setState(prevState => ({
             currentIndex: currentIndex,
@@ -72,12 +73,7 @@ class slider extends Component {
     }
 
     slideWidth = () => {
-        let width = document.querySelector('.slide').clientWidth;
-        return width
-    }
-
-    test1 = () => {
-        let s = document.querySelector('.slide').clientWidth;
+        let s = this.state.mobile ? document.querySelector('.swipe').clientWidth : document.querySelector('.swipe').clientWidth / this.props.view;
         let index = this.state.currentIndex
         this.setState(prevState => ({
             testValue: -(s*index)
@@ -85,8 +81,18 @@ class slider extends Component {
         return -(s*index);
     }
 
+    resize = () => {
+        this.setState({mobile: window.innerWidth <= 760});
+    }
+
     componentDidMount() {
-        window.addEventListener("resize", this.test1);
+        window.addEventListener("resize", this.slideWidth);
+        window.addEventListener("resize", this.resize);
+        this.resize();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.test1);
     }
 
     render() {
@@ -100,7 +106,7 @@ class slider extends Component {
         };
 
         return (
-            <div className="slider">
+            <div className={ this.state.mobile ? `slider mobile slider-${this.props.view}` : `slider slider-${this.props.view}` }>
                 <div className="slider__wrapper"
                     style={{
                         transform: `translateX(${this.state.testValue}px)`,
