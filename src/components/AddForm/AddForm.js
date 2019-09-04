@@ -13,9 +13,9 @@ class AddForm extends Component {
             version: null,
             searchString: '',
             carList: [
-                { brand: 'Peugeot', model: '205', version: 'GTI Gutmann' },
-                { brand: 'Renault', model: 'Megane 4', version: 'GTI GutmannRS' },
-                { brand: 'Bmw', model: 'E92', version: 'M3' }
+                { id: 1, brand: 'Peugeot', model: '205', version: 'GTI Gutmann' },
+                { id: 2, brand: 'Renault', model: 'Megane 4', version: 'GTI GutmannRS' },
+                { id: 3, brand: 'Bmw', model: 'E92', version: 'M3' }
             ]
         }
     }    
@@ -80,7 +80,7 @@ class AddForm extends Component {
                     {
                         filterList.map(
                             (carFilter) => {
-                                return (<CarInfo item={carFilter}/>)
+                                return (<CarInfo item={carFilter} key={carFilter.id} />)
                             }
                         )
                     }
