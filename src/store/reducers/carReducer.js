@@ -5,7 +5,7 @@ const initialState = {
         "image": "",
         "url": "",
         "error": "Error"
-    }, 
+    },
     stock: 14,
     cars: [
         {
@@ -758,6 +758,34 @@ const initialState = {
             "new": true,
             "stock": 1,
             "preference": 18
+        },
+        {
+            "id": 28,
+            "country": "fr",
+            "brandshop": "Ottomobile",
+            "brand": "Renault",
+            "model": "21",
+            "version": "turbo ph1",
+            "year": "1986",
+            "reference": "OT798",
+            "color": "#000000",
+            "colorname": "Noir",
+            "image": "/cars/renault/renault-21-turbo-ph1.jpg",
+            "views": [
+                {
+                    "image1": "/cars/renault/renault-21-turbo-ph1-profil.jpg",
+                    "image2": "/cars/renault/renault-21-turbo-ph1-rear.jpg"
+                }
+            ],
+            "available": true,
+            "sold": false,
+            "keep": false,
+            "price": "90",
+            "size": "1/18",
+            "description": "Véritable emblème de son époque, la version la plus sportive de la gamme Renault 21 apparaît en 1987.",
+            "new": true,
+            "stock": 1,
+            "preference": 24
         }
     ]
 }
@@ -783,9 +811,9 @@ const carReducers = (state = initialState, action) => {
 
     if (action.type === 'DELETE__CAR') {
         let newList = state.cars.filter((car) => {
-            return car.id !== action.id 
+            return car.id !== action.id
         });
-        
+
         return {
             ...state,
             cars: newList
