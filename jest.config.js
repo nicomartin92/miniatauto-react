@@ -4,7 +4,10 @@ module.exports = {
     "**/*.test.js",
     "!**/node_modules/**",
     "!**/vendor/**",
-    "!**/stories/**"
+    "!**/stories/**",
+    "!**fireBaseConfig.js",
+    "**/*serviceWorker.js",
+    "**/*carsData.js"
   ],
   "jest": {
     "forceCoverageMatch": ["**/*.test.js"]
