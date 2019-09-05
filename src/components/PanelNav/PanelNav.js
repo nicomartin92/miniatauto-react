@@ -5,8 +5,8 @@ import PubSub from 'pubsub-js';
 import './PanelNav.scss';
 
 class PanelNav extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             isOpen: false,
             carsDataJsonFromState: [],
@@ -46,14 +46,13 @@ class PanelNav extends Component {
         }
     }
 
-
     render() {
         return (
             <div className={this.state.isOpen ? "panelNav expanded" : "panelNav"}>
                 <div className={this.state.isOpen ? "overlay expanded" : "overlay"}
-                    onClick={() => this.panelSwitcher(false)}></div>
-                <button className="buttonClose outer"
                     onClick={() => this.panelSwitcher(false)}>
+                </div>
+                <button className="buttonClose outer" onClick={() => this.panelSwitcher(false)}>
                     <div className="inner">
                         <label>Fermer</label>
                     </div>

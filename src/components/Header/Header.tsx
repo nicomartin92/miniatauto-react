@@ -12,11 +12,11 @@ import './Header.scss';
 class Headers extends Component {
 
     handleClick() {
-        PubSub.publish('open:panelNav');
+        PubSub.publish('open:panelNav', true);
     }
 
     triggerSearch() {
-        PubSub.publish('open:search');
+        PubSub.publish('open:search', true);
     }
 
     render() {

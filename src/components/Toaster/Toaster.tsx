@@ -7,24 +7,38 @@ import { ReactComponent as CrossIcon } from '../../assets/cross-icon.svg';
 /* styles */
 import './Toaster.scss';
 
-class Toaster extends Component {
-    constructor(props, context) {
-        super(props, context)
+type MyProps = {
+    item: {
+        url: string,
+        succes: string,
+        text: string,
+        image: string
+    }
+};
+
+type MyState = {
+    showToaster: boolean,
+    timer: number
+};
+
+class Toaster extends Component<MyProps, MyState> {
+    constructor(props: any) {
+        super(props);
 
         this.state = {
             showToaster: false,
             timer: 3000
         }
 
-        this.positionMap = {
+        /* this.positionMap = {
             1: 'top-left',
             2: 'top-right',
             3: 'bottom-right',
             4: 'bottom-left',
-        }
+        } */
     }
 
-    toastDisplay(value) {
+    toastDisplay(value: boolean) {
         this.setState({
             showToaster: value
         });
