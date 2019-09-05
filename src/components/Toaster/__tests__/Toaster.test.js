@@ -30,6 +30,16 @@ describe('<Toaster>', () => {
         const firstButton = wrapper.find('.toast__close');
 
         firstButton.simulate('click');
-        expect(wrapper.state().showToaster).toEqual(false);
+        wrapper.setState({
+            showToaster: true
+        });
+
+        expect(wrapper.state().showToaster).toEqual(true);
+
+        setTimeout(() => {
+            expect(wrapper.state().showToaster).toEqual(true);
+            wrapper.unmount();
+            done();
+        }, 3000);
     });
 });
