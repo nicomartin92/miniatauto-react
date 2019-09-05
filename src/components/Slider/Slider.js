@@ -92,7 +92,8 @@ class slider extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.test1);
+        window.removeEventListener("resize", this.slideWidth);
+        window.removeEventListener("resize", this.resize);
     }
 
     render() {

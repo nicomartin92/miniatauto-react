@@ -1,6 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class CarInfo extends Component {
+type MyProps = {
+    item: {
+        brand: string,
+        model: string,
+        version: string
+    }
+};
+
+class CarInfo extends Component<MyProps> {
     render() {
         return (
             <div>
