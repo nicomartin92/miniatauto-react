@@ -1,15 +1,17 @@
 module.exports = {
-  verbose: true,
-  "collectCoverageFrom": [
-    "**/*.test.js",
-    "!**/node_modules/**",
-    "!**/vendor/**",
-    "!**/stories/**",
-    "!**fireBaseConfig.js",
-    "**/*serviceWorker.js",
-    "**/*carsData.js"
+  "roots": [
+    "<rootDir>/src"
   ],
-  "jest": {
-    "forceCoverageMatch": ["**/*.test.js"]
-  }
-};
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
+  ],
+}
