@@ -28,7 +28,7 @@ class AddForm extends Component {
     }
 
     submitForm = (e) => {
-        console.warn(this.state)
+        // console.warn(this.state)
         e.preventDefault();
 
         this.setState({
@@ -85,7 +85,7 @@ class AddForm extends Component {
                         )
                     }
                 </div>
-                <form onSubmit={this.submitForm}>
+                <form onSubmit={this.submitForm} className="form">
                     <label htmlFor="brand">Brand:</label>
                     <input type="text" id="brand" ref="brand" onChange={this.changeValue} />
 
