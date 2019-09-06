@@ -179,3 +179,65 @@
     bottom: 0;
   }
 }
+
+@mixin fadeIn($dir,$offset,$timing,$cubic,) {
+
+  opacity: 0;
+  transition: transform $timing $timing/2 $cubic, opacity $timing $timing/2 $cubic;
+  &.fadeIn {
+    opacity: 1;
+  }
+
+  @if ($dir == 'left') {
+    transform: translate3d(-$offset, 0, 0);
+    &.fadeIn {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @elseif ($dir == 'bottom') {
+    transform: translate3d(0, $offset, 0);
+    &.fadeIn {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @elseif ($dir == 'top') {
+    transform: translate3d(0, -$offset, 0);
+    &.fadeIn {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @elseif ($dir == 'right') {
+    transform: translate3d($offset, 0, 0);
+    &.fadeIn {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// .my-item { @include fadeIn('left', 20px, .5s, linear); }
+
+@mixin loopDelay($n,$delay,) {
+
+  @for $i from 1 through $n {
+    &:nth-child(#{$i}) {
+      transition-delay: $i * $delay * 1s;
+    }  
+  }
+}
+
+// .items { @include loopDelay(4, .1s); }
+
+@mixin loopDelayRow($delay,$item-per-row,) {
+
+  @for $i from 1 through $item-per-row {
+    $end: #{$item-per-row}n - ($item-per-row - $i);
+    &:nth-child(#{$end}) {
+      transition-delay: $i * $delay * 1s;
+    }
+  }
+}
+
+// .items { @include loopDelay(.1s, 4); }
