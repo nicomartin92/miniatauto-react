@@ -77,16 +77,16 @@ class StatusPage extends Component {
                 <div className="main">
                     <h1>Dashboard</h1>
 
-                    <AddForm />
+                    {/* <AddForm /> */}
 
-                    <div className="dashboard">
+                    {/* <div className="dashboard">
                         <div>
                             <ProjectList projects={this.props.projects} />
                         </div>
                         <div>
                             <Notifications />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="gridTable">
                         <div className="gridTable__row">

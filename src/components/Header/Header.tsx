@@ -29,9 +29,9 @@ class Headers extends Component {
                             <li>
                                 <button onClick={this.handleClick}>Cars</button>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink exact={true} to="/" activeClassName="-active">Accueil</NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to="/list" activeClassName="-active">Catégorie</NavLink>
                             </li>
