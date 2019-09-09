@@ -6,9 +6,9 @@ import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Notifications from '../components/Dashboard/Notifications';
-import ProjectList from '../components/Projects/ProjectList';
-import AddForm from '../components/AddForm/AddForm';
+// import Notifications from '../components/Dashboard/Notifications';
+// import ProjectList from '../components/Projects/ProjectList';
+// import AddForm from '../components/AddForm/AddForm';
 
 /* Store */
 import { connect } from 'react-redux';
