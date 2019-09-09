@@ -13,7 +13,7 @@ import Dashboard from '../components/Dashboard/Dashboard';
 /* Store */
 import { connect } from 'react-redux';
 
-/* firestore not used */
+/* firestore */
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
