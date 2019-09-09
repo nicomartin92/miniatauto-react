@@ -213,8 +213,6 @@ class ListPage extends Component {
         <div className="main">
           <h1>List page</h1>
 
-          {carShape}
-
           <div className="list">
             <div className="sticky">
               <div className="list__searchBar">
