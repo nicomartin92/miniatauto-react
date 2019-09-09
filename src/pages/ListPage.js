@@ -7,6 +7,7 @@ import Footer from '../components/Footer/Footer';
 import List from '../components/List/List';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Toaster from '../components/Toaster/Toaster';
+import Shape from '../components/Shape/Shape';
 
 /* store */
 import { connect } from 'react-redux';
@@ -68,7 +69,7 @@ class ListPage extends Component {
           if (item.stock <= 0 || item.stock === isNaN) {
             item.stock = 0
             item.available = !item.available
-          } 
+          }
         }
         return item
       })
@@ -194,6 +195,14 @@ class ListPage extends Component {
       key={item.id}
       item={item} />);
 
+    const selectedCar = this.state.originCarsDataJsonFromState.filter((car) => {
+      return car.id === 20
+    });
+
+    const carShape = selectedCar.map(item => <Shape
+      key={item.id}
+      item={item} />);
+
     return (
       <div>
         <PanelNav />
@@ -203,6 +212,8 @@ class ListPage extends Component {
 
         <div className="main">
           <h1>List page</h1>
+
+          {carShape}
 
           <div className="list">
             <div className="sticky">

@@ -1,0 +1,14 @@
+@import '../../styles/index.scss';
+
+.shape {
+    position: relative;
+    overflow: hidden;
+
+    &__icon {
+        position: absolute;
+        top: 96px;
+        width: 100%;
+        height: 100%;
+        transform: scale(0.79);
+    }
+}
