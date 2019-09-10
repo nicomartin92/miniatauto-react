@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
+import PageIndicator from '../components/PageIndicator/PageIndicator';
 import List from '../components/List/List';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Toaster from '../components/Toaster/Toaster';
@@ -218,6 +219,7 @@ class ListPage extends Component {
       <div>
         <PanelNav />
         <Header />
+        <PageIndicator color={'#0b299f'} />
         <Autocomplete />
         <Toaster item={this.props.toast} ref={this.sendToastEvent} />
 
