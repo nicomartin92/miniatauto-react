@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
+import PageIndicator from '../components/PageIndicator/PageIndicator';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Slider from '../components/Slider/Slider';
 
@@ -66,10 +67,12 @@ class CarPage extends Component {
         // const otherCategories = this.state.carsDataJsonFromState.filter(car => car.brand === showCorrectCarBrand[0]);
         const otherCategories = this.props.cars.filter(car => car.brand === showCorrectCarBrand[0]);
 
+        const showPageIndicator = showCorrectCar.map(car => <PageIndicator color={car.color} />);
         return (
             <div>
                 <PanelNav />
                 <Header />
+                {showPageIndicator}
                 <Autocomplete />
 
                 <div className="main">

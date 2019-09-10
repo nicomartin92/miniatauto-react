@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
+import PageIndicator from '../components/PageIndicator/PageIndicator';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Dashboard from '../components/Dashboard/Dashboard';
 // import Notifications from '../components/Dashboard/Notifications';
@@ -72,6 +73,7 @@ class StatusPage extends Component {
             <div>
                 <PanelNav />
                 <Header />
+                <PageIndicator color={'#0b299f'} />
                 <Autocomplete />
 
                 <div className="main">

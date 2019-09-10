@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import PanelNav from '../components/PanelNav/PanelNav';
 import Footer from '../components/Footer/Footer';
+import PageIndicator from '../components/PageIndicator/PageIndicator';
 import Grid from '../components/Grid/Grid';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Slider from '../components/Slider/Slider';
@@ -59,6 +60,7 @@ class WhishlistPage extends Component {
       <div>
         <PanelNav />
         <Header />
+        <PageIndicator color={'#0b299f'} />
         <Autocomplete />
 
         <div className="main">
