@@ -195,7 +195,8 @@ class ListPage extends Component {
       key={item.id}
       item={item} />);
 
-    const selectedCar = this.state.originCarsDataJsonFromState.filter((car) => {
+    // const selectedCar = this.state.originCarsDataJsonFromState.filter((car) => {
+    const selectedCar = this.props.cars.filter((car) => {
       return car.id === 20
     });
 
