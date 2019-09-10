@@ -91,7 +91,7 @@ class ListPage extends Component {
   year(year) {
     // Please keep it
     // let _cars1 = this.state.carsDataJsonFromState;
-    let _cars1 = this.cars.props;
+    let _cars1 = this.props.cars;
     _cars1 = _cars1.slice().sort((a, b) => {
       if (year === 'asc') {
         return a.year - b.year
@@ -150,6 +150,10 @@ class ListPage extends Component {
     }, 0);
 
     this.props.updateGlobalStock(currentStockResult);
+
+    this.setState({
+      carsDataJsonFromState: this.props.cars
+    })
   }
 
   /* did mount */
@@ -179,7 +183,7 @@ class ListPage extends Component {
     // Please keep it
     // let _cars = this.state.carsDataJsonFromState;
 
-    let _cars = this.props.cars;
+    let _cars = this.state.carsDataJsonFromState;
     let search = this.state.searchString.trim().toLowerCase();
 
     if (search.length > 0) {
@@ -193,8 +197,6 @@ class ListPage extends Component {
     }
 
     let searchCount = _cars.length;
-
-    console.warn('hello ', this.props.cars)
 
     /* from Json */
     const carsItemsFromJson = _cars.map(item => <List
