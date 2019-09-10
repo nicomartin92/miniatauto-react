@@ -8,6 +8,9 @@ import Grid from '../components/Grid/Grid';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Slider from '../components/Slider/Slider';
 
+/* store */
+import { connect } from 'react-redux';
+
 class WhishlistPage extends Component {
   constructor() {
     super()
@@ -42,7 +45,8 @@ class WhishlistPage extends Component {
   render() {
 
 
-    let _cars = this.state.carsDataJsonFromState;
+    // let _cars = this.state.carsDataJsonFromState;
+    let _cars = this.props.cars;
 
     _cars = _cars.filter(car => car.preference > 0).sort((a, b) => {
       return a.preference - b.preference
@@ -73,4 +77,13 @@ class WhishlistPage extends Component {
   }
 }
 
-export default WhishlistPage;
+const mapStateToProps = (state) => {
+  return {
+      cars: state.carR.cars,
+      stock: state.carR.stock,
+      toast: state.carR.toast
+  }
+}
+
+// export default WhishlistPage;
+export default connect(mapStateToProps)(WhishlistPage);

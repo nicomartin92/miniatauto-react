@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import PubSub from 'pubsub-js';
 
+/* store */
+import { connect } from 'react-redux';
+
 import './PanelNav.scss';
 
 class PanelNav extends Component {
@@ -59,7 +62,8 @@ class PanelNav extends Component {
                 </button>
                 <h3>cars</h3>
                 <ul>
-                    {this.state.carsDataJsonFromState.map((car) => (
+                    {/* this.state.carsDataJsonFromState */}
+                    {this.props.cars.map((car) => (
                         <li key={car.id}>
                             <NavLink className="panelNav__item" to={`/Car/${car.reference}`} onClick={() => this.panelSwitcher(false)}>
                                 <div className="panelNav__label">
@@ -77,4 +81,13 @@ class PanelNav extends Component {
     }
 }
 
-export default PanelNav;
+const mapStateToProps = (state) => {
+    return {
+        cars: state.carR.cars,
+        stock: state.carR.stock,
+        toast: state.carR.toast
+    }
+}
+
+// export default PanelNav;
+export default connect(mapStateToProps)(PanelNav);
