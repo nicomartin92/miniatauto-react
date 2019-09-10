@@ -78,9 +78,13 @@ a {
 
 .inputSearch {
     border: none;
-    font-size: 50px;
+    font-size: 25px;
     border-bottom: 1px solid $colorBlack;
     outline: none;
+
+    @include medium {
+        font-size: 40px;
+    }
 }
 
 .overlay {
