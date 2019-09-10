@@ -7,6 +7,9 @@ import Footer from '../components/Footer/Footer';
 import Autocomplete from '../components/Autocomplete/Autocomplete';
 import Slider from '../components/Slider/Slider';
 
+/* store */
+import { connect } from 'react-redux';
+
 /* const CarPage = () => {
     return (
         <div>
@@ -55,11 +58,13 @@ class CarPage extends Component {
     }
 
     render() {
-        const showCorrectCar = this.state.carsDataJsonFromState.filter(car => car.reference === this.props.match.params.id);
+        // const showCorrectCar = this.state.carsDataJsonFromState.filter(car => car.reference === this.props.match.params.id);
+        const showCorrectCar = this.props.cars.filter(car => car.reference === this.props.match.params.id);
         // const mapCoorectCar = showCorrectCar.map(item => item);
 
         const showCorrectCarBrand = showCorrectCar.map(car => car.brand);
-        const otherCategories = this.state.carsDataJsonFromState.filter(car => car.brand === showCorrectCarBrand[0]);
+        // const otherCategories = this.state.carsDataJsonFromState.filter(car => car.brand === showCorrectCarBrand[0]);
+        const otherCategories = this.props.cars.filter(car => car.brand === showCorrectCarBrand[0]);
 
         return (
             <div>
@@ -160,4 +165,13 @@ class CarPage extends Component {
     }
 }
 
-export default CarPage;
+const mapStateToProps = (state) => {
+    return {
+        cars: state.carR.cars,
+        stock: state.carR.stock,
+        toast: state.carR.toast
+    }
+}
+
+// export default CarPage;
+export default connect(mapStateToProps)(CarPage);
