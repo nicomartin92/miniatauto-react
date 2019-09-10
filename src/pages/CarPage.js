@@ -74,7 +74,7 @@ class CarPage extends Component {
 
                 <div className="main">
                     {showCorrectCar.map((car) => (
-                        <div>
+                        <div key={car.id}>
                             <h3>Modèle: {car.reference}</h3>
                             <h5 className="card-title">{car.brand} {car.model} {car.version}</h5>
                             <div className="textBlock">

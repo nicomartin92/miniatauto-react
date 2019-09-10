@@ -7,7 +7,7 @@ const Pagination = ({ item, action, active }) => {
 
       {
         item.map((item, i) => {
-          return <li className={ i === active ? "pagination__item -active": "pagination__item"} onClick={() => action(i)}>
+          return <li className={ i === active ? "pagination__item -active": "pagination__item"} onClick={() => action(i)} key={i}>
                     <button>{i}</button>
                  </li>
         })
