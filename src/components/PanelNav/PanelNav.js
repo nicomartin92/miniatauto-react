@@ -37,6 +37,10 @@ class PanelNav extends Component {
             .catch(console.log)
     }
 
+    componentWillUnmount() {
+        PubSub.unsubscribe();
+    }
+
     panelSwitcher(value) {
         if (value) {
             this.setState({
