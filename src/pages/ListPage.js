@@ -56,7 +56,8 @@ class ListPage extends Component {
 
   countStock(id) {
     this.setState(prevState => {
-      const updatedStock = prevState.carsDataJsonFromState.map(item => {
+      // const updatedStock = prevState.carsDataJsonFromState.map(item => {
+      const updatedStock = this.props.cars.map(item => {
         if (item.id === id) {
           item.stock = (item.stock - 1)
 
@@ -89,7 +90,8 @@ class ListPage extends Component {
 
   year(year) {
     // Please keep it
-    let _cars1 = this.state.carsDataJsonFromState;
+    // let _cars1 = this.state.carsDataJsonFromState;
+    let _cars1 = this.cars.props;
     _cars1 = _cars1.slice().sort((a, b) => {
       if (year === 'asc') {
         return a.year - b.year
@@ -104,7 +106,8 @@ class ListPage extends Component {
 
   countryBrand(country) {
     // Please keep it 
-    let _countryBrand = this.state.originCarsDataJsonFromState;
+    // let _countryBrand = this.state.originCarsDataJsonFromState;
+    let _countryBrand = this.props.cars;
     _countryBrand = _countryBrand.filter(function (car) {
       switch (country) {
         case 'fr':
@@ -132,7 +135,8 @@ class ListPage extends Component {
 
   clearAll() {
     // Please keep it
-    let _clearAll = this.state.originCarsDataJsonFromState;
+    // let _clearAll = this.state.originCarsDataJsonFromState;
+    let _clearAll = this.props.cars;
     this.setState({
       carsDataJsonFromState: _clearAll
     });
@@ -173,7 +177,9 @@ class ListPage extends Component {
     const carToSell = this.props.stock;
 
     // Please keep it
-    let _cars = this.state.carsDataJsonFromState;
+    // let _cars = this.state.carsDataJsonFromState;
+
+    let _cars = this.props.cars;
     let search = this.state.searchString.trim().toLowerCase();
 
     if (search.length > 0) {
@@ -187,6 +193,8 @@ class ListPage extends Component {
     }
 
     let searchCount = _cars.length;
+
+    console.warn('hello ', this.props.cars)
 
     /* from Json */
     const carsItemsFromJson = _cars.map(item => <List

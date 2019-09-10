@@ -20,6 +20,7 @@ import './List.scss'
 
 class List extends Component {
     render() {
+        console.warn('props', this.props);
         const unavailableStyles = {
             opacity: "0.5",
             pointerEvents: "none"
@@ -64,4 +65,4 @@ class List extends Component {
     }
 }
 
-export default List
+export default List;
