@@ -50,6 +50,12 @@ class AddForm extends Component {
         });
     }
 
+    fake = (a, b) => {
+
+        return a * c;
+    
+    }
+
     render() {
 
         let filterList = this.state.carList.filter(
