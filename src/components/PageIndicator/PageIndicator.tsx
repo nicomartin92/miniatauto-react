@@ -14,16 +14,12 @@ class PageIndicator extends Component<MyProps, MyState> {
         super(props);
         this.state = {
             scrolled: 0,
-            scrollColor: '#0b299f'
+            scrollColor: this.props.color ? this.props.color : '#0b299f'
         };
     }
 
     componentDidMount() {
         window.addEventListener("scroll", this.scrollProgress);
-
-        this.setState({
-            scrollColor: this.props.color ? this.props.color : '#0b299f'
-        });
     }
 
     componentWillUnmount() {
