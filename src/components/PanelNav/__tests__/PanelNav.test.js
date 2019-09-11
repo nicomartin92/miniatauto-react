@@ -2,8 +2,10 @@ import React from 'react';
 import { shallow, render, mount } from 'enzyme';
 import PanelNav from '../PanelNav';
 
+import Provider from 'react-redux';
+
 describe('<PanelNav>', () => {
-    const wrapper = shallow(<PanelNav />);
+    const wrapper = shallow(<PanelNav store={''} />);
 
     it('should do panelSwitcher to be false on button close', () => {
         const firstButton = wrapper.find('.buttonClose');
